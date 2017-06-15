@@ -1,0 +1,51 @@
+.breadcrumb {
+    font-size: $breadcrumb-font-size;
+    ul,
+    ol {
+        @include resetList();
+        @include horizontalList($margin: 0);
+        //padding: $breadcrumb-padding;
+        li {
+            &:not(:last-child) {
+                margin-right: $gap-xs;
+            }
+            &:not(:first-child) {
+                &:before {
+                    @extend .icon;
+                    content: "\edbe";
+                    margin-right: $gap-xs;
+                    font-size: 60%;
+                }
+                > a,
+                span {
+                    vertical-align: middle;
+                }
+            }
+            &:first-child {
+                vertical-align: middle;
+                > a {
+                    display: inline-block;
+                    > span {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    p,
+    a {
+        margin: 0;
+    }
+    a {
+        @include hoverLink($breadcrumb-color);
+    }
+}
+
+.breadcrumb-section { 
+    background-color: $breadcrumb-background-color;
+    color: $breadcrumb-color;
+    .section-container {
+        padding-top: $gap-half !important;
+        padding-bottom: $gap-half !important;
+    }
+}

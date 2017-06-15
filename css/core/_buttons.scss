@@ -1,0 +1,119 @@
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    color: $button-color;
+    background-color: $button-background-color;
+    border-radius: $button-border-radius;
+    @include setFont($button-font-name);
+    @include border($button-border-color);
+    transition: $base-transition;
+    padding: $gap-md $gap;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+    .no-touch & {
+        @include transition();
+        &:hover {
+            color: $button-hover-color;
+            background-color: $button-hover-background-color;
+        }
+    }
+    &:disabled,
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    vertical-align: middle;
+    .label,
+    .icon-container {
+        display: inline-block;
+    }
+    &.inverted {
+        color: $button-hover-color;
+        background-color: $button-hover-background-color;
+        .no-touch & {
+            &:hover {
+                color: $button-color;
+                background-color: $button-background-color;
+            }
+        }
+    }
+    &.show-more, &.login, &.send {
+        width: 100%;
+    }
+    &.load-more {
+        @include breakpoint($breakpoint-md) {
+            width: 100%;
+        }
+    }
+    &.load-more {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        //margin-top: $gap-double;
+        .loader {
+            display: none;
+        }
+        &.loading {
+            pointer-events: none;
+            .text {
+                display: none;
+            }
+            .loader {
+                display: inline-block;
+            }
+        }
+    }
+    &.send {
+        margin-top: $gap-half;
+    }
+    &.show-more {
+        margin-top: $gap;
+    }
+    &.login {
+        margin-top: $gap-half;
+        &.login-loader {
+            margin-bottom: 0;
+
+            .loader {
+                position: absolute;
+            }
+        }
+    }
+    &.btn-default,
+    &.button {
+        &-brand-color {
+            border: none;
+            color: $button-brand-color;
+            background-color: $button-brand-background-color;
+            .no-touch & {
+                &:hover {
+                    color: $button-brand-hover-color;
+                    background-color: $button-brand-hover-background-color;
+                }
+            }
+        }
+        &-rounded {
+            border: none;
+            border-radius: $gap;
+        }
+        &-small {
+            border: none;
+            padding: $gap-half $gap-md;
+        }
+    }
+}
+
+.use-button-font {
+    @include setFont($button-font-name);
+}

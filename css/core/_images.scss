@@ -1,0 +1,39 @@
+picture,
+img {
+    border-style: none;
+    border: 0;
+    display: block;
+    //line-height: 0;
+    width: 100%;
+    user-select: none;
+    height: auto;
+    &:focus,
+    &:active {
+        outline: none;
+    }
+    div[class^="sc"] & {
+        //sitecore items.
+        display: inline-block;
+        width: auto;
+    }
+}
+
+.background-image {
+    display: block;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &.use-percent {
+        min-height: 0;
+        padding-bottom: 56.25%;
+    }
+}
+
+//sitecore fix
+#breadcrumbMenuSubcontrol_context_menu {
+    img {
+        display: inline-block;
+        width: auto;
+    }
+}

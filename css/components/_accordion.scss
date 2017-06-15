@@ -1,0 +1,90 @@
+ul,
+ol {
+    &.accordion {
+        @include border($accordion-border-color);
+        margin: 0 0 $gap 0;
+        padding: 0;
+        > li.menu-item:first-child {
+            > a,
+            > div > a {
+                border-top: none !important;
+            }
+        }
+        li.menu-item {
+            list-style: none;
+            > a,
+            > div > a {
+                width: 100%;
+                background-color: $accordion-background-color;
+                @include transition();
+                @include setFont($accordion-font);
+                @include border($accordion-border-color, top);
+                color: $accordion-color;
+                display: block;
+                padding: $accordion-padding;
+            }
+            .no-touch & {
+                &:hover {
+                    > a,
+                    > div > a {
+                        background-color: $accordion-hover-background-color;
+                        color: $accordion-hover-color;
+                    }
+                }
+            }
+        }
+        .icon {
+            //transform: rotate(90deg);
+            @include customTransitionTiming($easeOutCubic);
+        }
+        .is-expanded {
+            > a,
+            > div > a {
+                .icon-container {
+                    .icon {
+                        //transform: rotate(-90deg);
+                        transform: rotate(-180deg);
+                    }
+                }
+            }
+        }
+        ul.submenu {
+            margin: 0;
+            padding: 0;
+            display: none;
+            li.menu-item {
+                > a,
+                > div > a {
+                    background-color: $accordion-sub-background-color;
+                    color: $accordion-sub-color;
+                    //padding-left: $accordion-sub-indent;
+                }
+                .no-touch & {
+                    &:hover {
+                        > a,
+                        > div > a {
+                            color: $accordion-sub-hover-color;
+                            background-color: $accordion-sub-hover-background-color;
+                        }
+                    }
+                }
+            }
+            .submenu {
+                li.menu-item {
+                    > a,
+                    > div > a {
+                        //padding-left: $accordion-sub-indent+$gap;
+                    }
+                }
+            }
+        }
+        .side-nav & {
+            border-right: none;
+            border-left: none;
+            margin: 0;
+        }
+        .accordion-content {
+            padding: $gap;
+        }
+    }
+}

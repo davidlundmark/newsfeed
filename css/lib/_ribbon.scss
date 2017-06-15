@@ -1,0 +1,18 @@
+@import 'node_modules/sass-math/math';
+
+// id => (width, height)
+// generates .corner-ribbon--#{ $id }-[left|right]-[top|bottom] modifier classes
+// i.e. .corner-ribbon--default-left-top
+$corner-ribbon-sizes: (
+    default: (100px, 30px),
+    article: (100px, 30px)
+) !default;
+
+$corner-ribbon-success: $base-brand-color !default;
+
+// id => #color
+// generates .corner-ribbon--#{ $id } modifier classes
+// i.e. .corner-ribbon--primary
+$corner-ribbon-colors: (
+    success: $corner-ribbon-success
+) !default;

@@ -1,0 +1,565 @@
+.page-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000 !important;
+    background-color: transparent;
+    //transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
+    transition: transform 0.4s $easeOutQuad;
+    backface-visibility: hidden;
+    .logo {
+        width: $header-logo-width;
+        #skogsskolan & {
+            width: $header-skogsskolan-logo-width;
+        }
+        .subweb & {
+            backface-visibility: hidden;
+            //width: $header-logo-width-subweb;
+        }
+        @include breakpoint($breakpoint-md) {
+            width: $header-logo-width-md;
+        }
+        &.logo-small {
+            width: $header-logo-small-width;
+        }
+    }
+    &.menu-open {
+        .section-container {
+            //.subweb & {
+            &:nth-child(1) {
+                background-color: $header-background-color;
+            }
+        }
+    }
+    &:not(.menu-open) {
+        .section-container {
+            //.subweb & {
+            &:nth-child(1) {
+                .no-touch & {
+                    &:hover {
+                        background-color: $header-background-color;
+                    }
+                }
+            }
+        }
+    }
+    &.scrolled:not(.menu-open) {
+        //background-color: $header-scrolled-background-color;
+        border-bottom: $header-scrolled-border-bottom;
+        @at-root .page-header-inverted#{&} {
+            border-bottom-color: $play-background-color;
+        }
+        .section-container {
+            //.subweb & {
+            &:nth-child(1) {
+                background-color: $header-scrolled-background-color;
+                .no-touch & {
+                    &:hover {
+                        background-color: $white; // $header-background-color;
+                    }
+                }
+                @at-root .page-header-inverted#{&} {
+                    background-color: $header-inverted-scrolled-background-color;
+                    .no-touch & {
+                        &:hover {
+                            background-color: $header-inverted-background-color;
+                        }
+                    }
+                }
+            }
+            &:nth-child(2) {
+                background-color: $header-subweb-scrolled-background-color;
+                .no-touch & {
+                    &:hover {
+                        background-color: $header-subweb-background-color;
+                    }
+                }
+            }
+            //}
+            @include clearfix();
+        }
+    }
+    &.slide-up,
+    .slide-up {
+        @include translateY(-100%);
+    }
+    &.page-section {
+        border-bottom: $header-bottom-border;
+        #play & {
+            border-bottom: none;
+        }
+        &.brand-border {
+            border-color: $base-brand-color;
+            //border-bottom-width: 2px;
+        }
+    }
+    ul,
+    ol {
+        @include resetList();
+    }
+    .section-container {
+        padding: $gap $page-section-padding;
+        transition: background-color $base-transition-duration $base-transition-timing;
+        &:nth-child(1) {
+            background-color: transparent; // $header-background-color;
+            padding: 0 $gap-double;
+            @at-root .page-header-inverted#{&} {
+                background-color: $header-inverted-background-color;
+            }
+            // #play & {
+            //     @include breakpoint($breakpoint-lg) {
+            //         padding: 0 $gap;
+            //     }
+            // }
+            @include breakpoint($breakpoint-lg) {
+                padding: 0 $gap;
+            }
+        }
+        .subweb & {
+            &:nth-child(1) {
+                padding: $gap-half $page-section-padding;
+                @include breakpoint($breakpoint-lg) {
+                    padding: 0 $gap-double;
+                }
+            }
+            &:nth-child(2) {
+                padding: 0 $page-section-padding;
+                background-color: $header-subweb-background-color;
+            }
+        }
+        @include clearfix();
+    }
+    .logo-container {
+        width: $header-logo-width;
+        #skogsskolan & {
+            width: $header-skogsskolan-logo-width;
+        }
+        float: left;
+        margin-right: $gap;
+        position: relative;
+        z-index: 1;
+        .rootweb & {
+            top: 12px; //$gap;
+        }
+        > a {
+            display: block;
+        }
+        @include breakpoint($breakpoint-lg) {
+            .rootweb & {
+                top: 0;
+            }
+            padding: $gap-md 0;
+            #skogsskolan & {
+                padding: $gap-half 0;
+            }
+        }
+    }
+    // .search-container {
+    //     display: inline-block;
+    //     @include centerVertical();
+    //     right: $page-section-padding;
+    //     width: 20%;
+    //     .search {
+    //         float: right;
+    //         .label {
+    //             display: none;
+    //         }
+    //         .icon-container {
+    //             @at-root .page-header-inverted#{&} {
+    //                 color: $header-inverted-color;
+    //             }
+    //         }
+    //         input {
+    //             @at-root .page-header-inverted#{&} {
+    //                 color: $header-inverted-color;
+    //             }
+    //         }
+    //     }
+    // }
+    .search-container {
+        margin-top: $gap-xl;
+        margin-bottom: $gap-xl;
+        float: right;
+        display: inline-block;
+        @include transition();
+        .search {
+            float: right;
+        }
+        .label-with-icon {
+            .label {
+                width: 0;
+                margin: 0;
+                padding: 0;
+                margin-left: 0;
+                border-radius: 0;
+                @extend .small;
+                background-color: transparent;
+                border: none;
+                @include border($dir: bottom, $thickness: 1px);
+                @include transition($transition-timing: $easeOutSine);
+            }
+            .icon-container {
+                padding-left: $gap;
+                color: $base-font-color;
+                // .no-touch & {
+                @include transition(color);
+                &:hover {
+                    color: $header-submenu-hover-color;
+                }
+                // }
+            }
+        }
+        &.open {
+            .label-with-icon {
+                .label {
+                    padding: 0 $gap-xs;
+                    margin-left: $gap;
+                    width: 200px;
+                }
+            }
+        }
+    }
+    .default-menu {
+        z-index: 1;
+        display: inline-block;
+        .rootweb & {
+            //position: absolute;
+            //top: 10px;
+            //@include centerVertical();
+            &.right-menu {
+                float: right;
+            }
+        }
+        //left: $page-section-padding;
+        .menu {
+            @include horizontalList();
+            //line-height: 0;
+            .subweb & {
+                > li {
+                    //line-height: $base-line-height;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+            // > li {
+            //     margin-top: $gap-xl;
+            //     margin-bottom: $gap-xl;
+            // }
+        }
+        .menu-item {
+            .rootweb & {
+                @include animateLine($color: $header-color, $distance: -51px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
+                @at-root .page-header-inverted#{&} {
+                    @include animateLine($color: $header-inverted-color, $distance: -51px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
+                }
+            }
+            position: relative;
+            > .text {
+                color: $header-color;
+                text-transform: $header-text-transform;
+                display: block;
+                text-decoration: none;
+                user-select: none;
+                letter-spacing: 1px;
+                @at-root .page-header-inverted#{&} {
+                    color: $header-inverted-color;
+                }
+                &.selected {
+                    color: $base-brand-color;
+                    @include animateLine($line-color: $base-brand-color, $thickness: 2px, $scale: 1, $distance: -$gap-xl, $top: true);
+                }
+            }
+            > span {
+                cursor: default;
+            }
+            .no-touch & {
+                > .text {
+                    &:hover {
+                        color: $header-hover-color;
+                        @at-root .page-header-inverted#{&} {
+                            color: $header-inverted-hover-color;
+                        }
+                    }
+                }
+            }
+            .no-touch & {
+                &.has-child {
+                    &:hover {
+                        > .submenu {
+                            visibility: visible;
+                            opacity: 1;
+                            z-index: 99;
+                            @include transition(all, 0.2s, linear);
+                        }
+                    }
+                }
+            }
+            @include headings() {
+                cursor: default;
+            }
+        }
+        .submenu {
+            width: 100vw;
+            display: block;
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+            visibility: hidden;
+            border-bottom: $header-scrolled-border-bottom;
+            &:before {
+                height: $gap + $gap-half + 1px;
+                // .subweb & {
+                //     height: $gap;
+                // }
+                display: block;
+                content: '';
+                background-color: transparent;
+            }
+            &-container {
+                background-color: $header-subweb-background-color;
+                .subweb & {
+                    background-color: $header-background-color;
+                }
+            }
+            &-content {
+                display: inline-block;
+                margin: 0 auto;
+                padding: $gap 0 $gap-lg;
+            }
+            &-item {
+                display: inline-block;
+                margin-right: $page-section-padding;
+                vertical-align: top;
+                &:last-child {
+                    margin-right: 0;
+                }
+                p {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            a {
+                color: $header-color;
+                text-decoration: none;
+                .no-touch & {
+                    &:hover {
+                        color: $header-submenu-hover-color;
+                    }
+                }
+            }
+        }
+        @include breakpoint($breakpoint-lg) {
+            display: none;
+        }
+    }
+    .burger-container {
+        cursor: pointer;
+        display: none;
+        //@include centerVertical();
+        position: absolute;
+        right: $page-section-padding;
+        padding: 23px;
+        padding-right: 0;
+        top: 4px; //12px;
+        @include breakpoint($breakpoint-lg) {
+            right: $gap;
+        }
+        #play & {
+            @include breakpoint($breakpoint-lg) {
+                top: 5px;
+            }
+        }
+        .subweb & {
+            //top: 2px;
+        }
+        .burger {
+            @include burger($color: $header-color);
+            @at-root .page-header-inverted#{&} {
+                @include burger($color: $header-inverted-color);
+            }
+        }
+        @include breakpoint($breakpoint-lg) {
+            display: block;
+        }
+        @include breakpoint($breakpoint-md) {
+            //top: 8px;
+            .subweb & {
+                padding-top: $gap-half;
+                padding-bottom: $gap-half;
+                top: 7px;
+            }
+        }
+        @include breakpoint($breakpoint-lg) {
+            top: 0;
+        }
+        &.open {
+            .burger {
+                @include burger-to-cross();
+                @at-root .page-header-inverted#{&} {
+                    @include burger($color: $header-inverted-color);
+                }
+            }
+        }
+    }
+}
+
+#mobile-menu {
+    &.mobile-menu-inverted {
+        .menu-item a {
+            color: $header-inverted-color !important;
+        }
+    }
+    .accordion {
+        //padding: 0 $gap;
+        border: none;
+        @include border($base-font-color, top, 3px);
+        @at-root .mobile-menu-inverted#{&} {
+            border-color: $header-inverted-color;
+        }
+        .menu-item {
+            position: relative;
+            > * {
+                //border: none;
+                background-color: rgba($white, 0);
+            }
+        }
+        > li {
+            &:first-child {
+                //padding-top: $gap-half;
+            }
+            &:last-child {
+                //padding-bottom: $gap;
+                margin-bottom: $gap;
+                @include border($accordion-border-color, bottom);
+            }
+        }
+    }
+    .submenu {
+        background-color: $secondary-background-color !important;
+        &.level-2 {
+            > li {
+                padding: 0;
+                &:first-child {
+                    //padding-top: $gap-half;// $gap;
+                }
+                &:last-child {
+                    //padding-bottom: $gap-half;// $gap;
+                }
+            }
+        }
+        &.level-3 {
+            background-color: $tertiary-background-color !important;
+        }
+    }
+    .accordion-trigger {
+        pointer-events: auto;
+        text-transform: uppercase;
+        > span {
+            //touch-action: none;
+            //pointer-events: none;
+            &.icon-container {
+                //float: right;
+                //margin-top: 3px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                padding: $gap;
+            }
+        }
+    }
+    .content {
+        box-shadow: rgba(0, 0, 0, 0.156863) 0px 3px 10px, rgba(0, 0, 0, 0.227451) 0px 3px 10px;
+        background-color: $header-background-color;
+        position: absolute;
+        right: 0;
+        width: $sidenav-width;
+        cursor: pointer;
+        @at-root .mobile-menu-inverted#{&} {
+            background-color: $header-inverted-background-color;
+        }
+    }
+    .blocker {
+        position: absolute;
+        right: 0; //$sidenav-width;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($white, 0);
+        cursor: pointer;
+    }
+    .bottom {
+        padding: 0 $page-section-padding $gap;
+        a {
+            color: $base-font-color;
+            @at-root .mobile-menu-inverted#{&} {
+                color: $header-inverted-color;
+            }
+            text-decoration: none;
+            .no-touch & {
+                @include transition(color);
+                &:hover {
+                    color: $header-submenu-hover-color;
+                }
+            }
+        }
+        .social {
+            text-align: center;
+            a {
+                display: inline-block;
+                padding: $gap-half;
+                margin-left: -$gap-half;
+                margin-top: -$gap-half;
+                &:first-child {
+                    float: left;
+                }
+                &:last-child {
+                    float: right;
+                }
+            }
+        }
+        .search {
+            .label-with-icon {
+                .icon-container {
+                    text-align: left;
+                }
+            }
+        }
+        > div {
+            margin-bottom: $gap;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.search {
+    input {
+        margin: 0;
+    }
+    .label-with-icon {
+        width: 100%;
+        .label {
+            background-color: transparent;
+            border: none;
+            @include border($dir: bottom, $thickness: 2px);
+            padding: $gap-xs $gap-half;
+            text-transform: uppercase;
+        }
+        .icon-container {
+            width: 10%;
+            color: $base-font-color;
+            text-decoration: none;
+            .no-touch & {
+                @include transition(color);
+                &:hover {
+                    color: $header-submenu-hover-color;
+                }
+            }
+        }
+    }
+    input[type='submit'] {
+        display: none;
+    }
+}

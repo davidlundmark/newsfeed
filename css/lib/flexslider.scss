@@ -1,0 +1,215 @@
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+// Browser Resets 
+.flex-container,
+.flexslider {
+    a {
+        &:hover,
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+    @include resetList();
+}
+
+.flexslider {
+    .flex-viewport {
+        height: 100%;
+    }
+    .slides {
+        height: 100%;
+        @include forceHarwareAcceleration();
+        @include clearfix();
+        > li {
+            display: none;
+            height: 100%;
+        }
+    }
+    &-image {
+        display: block;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    &-figcaption {
+        @include centeredContainer(800px);
+        padding: 0 $page-section-padding;
+        height: 0;
+        //@extend .text-shadow;
+        .content {
+            max-width: calc(100% - #{$page-section-padding * 2});
+            @include translateY(-50%);
+            position: absolute;
+            color: $slider-figcaption-color;
+            //white-space: pre-line;
+            > img {
+                margin-bottom: $gap;
+            }
+            @include headings {
+                text-transform: $slider-figcaption-text-transform;
+                margin: 0 0 $gap-xs;
+                &:last-child {
+                    margin: 0;
+                }
+            }
+            .button {
+                margin-top: $gap-half;
+            }
+            .logo {
+                max-width: $slider-logo-width;
+                @include breakpoint($breakpoint-lg) {
+                    max-width: $slider-logo-width-lg;
+                }
+                @include breakpoint($breakpoint-lg) {
+                    max-width: $slider-logo-width-lg;
+                }
+                @include breakpoint($breakpoint-md) {
+                    max-width: $slider-logo-width-md;
+                }
+                @include breakpoint($breakpoint-ph) {
+                    max-width: $slider-logo-width-ph;
+                }
+                @include breakpoint($breakpoint-sm) {
+                    max-width: $slider-logo-width-sm;
+                }
+            }
+            .text-content {
+                margin-left: $gap-half;
+            }
+            .title,
+            a {
+                @extend .text-wrapper;
+            }
+        }
+        /*
+        @include breakpoint($breakpoint-lg) {
+            height: auto;
+            background-color: $slider-figcaption-background-color;
+            padding: 0 $gap $gap-double;
+            .flexslider-text {
+                @include clearfix();
+                position: relative;
+                margin: 0;
+                @include translate(0, 0);
+                top: auto;
+                bottom: auto;
+                > div {
+                    //clear: none;
+                    padding: 0;
+                    margin: 0;
+                    background-color: transparent;
+                    > * {
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+        */
+    }
+}
+
+.flex-next,
+.flex-prev {
+    text-decoration: none;
+    opacity: $slider-elements-not-active-opacity;
+    z-index: 1;
+    display: block;
+    cursor: pointer;
+    padding: $gap-half;
+    @include centerVertical();
+    .no-touch & {
+        @include transition();
+    }
+    > .icon {
+        display: block;
+        font-size: $carousel-arrow-size;
+        color: $slider-elements-color;
+    }
+    &.flex-disabled {
+        display: none !important;
+    }
+}
+
+.flex-prev {
+    padding-left: 8px;
+    left: 0; // ($carousel-arrow-size + $gap);
+    > .icon {
+        transform: rotate(180deg);
+    }
+}
+
+.flex-next {
+    padding-right: 8px;
+    right: 0; // ($carousel-arrow-size + $gap);
+}
+
+.flexslider:hover {
+    .flex-next,
+    .flex-prev {
+        //opacity: 0.8;
+        //background-color: transparent;
+        opacity: 1;
+        background-color: rgba(10, 10, 10, 0.6);
+        &:hover {
+            background-color: rgba(10, 10, 10, 0.8);
+            opacity: 1;
+        }
+    }
+}
+
+.flex-direction-nav {
+    @include breakpoint($breakpoint-lg) {
+        display: none;
+    }
+}
+
+.flex-control-nav {
+    position: absolute;
+    bottom: $gap;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    vertical-align: middle;
+    line-height: 0;
+    li {
+        position: relative;
+        display: inline-block;
+        height: $gap;
+        width: $gap;
+        margin: 0 $gap-xs;
+        padding: 0;
+        cursor: pointer;
+        .flex-dot {
+            display: block;
+            @include createCircle($slider-elements-color, $slider-dot-size);
+            position: absolute;
+            top: calc(50% - #{$slider-dot-size/2});
+            left: calc(50% - #{$slider-dot-size/2});
+            opacity: $slider-elements-not-active-opacity;
+            &.flex-active {
+                opacity: 1;
+            }
+        }
+    }
+    @include breakpoint($breakpoint-lg) {
+        bottom: $gap-half;
+    }
+}

@@ -1,0 +1,494 @@
+// =================================================
+// Default Colors
+// =================================================
+
+// Brand Colors
+$green: #2ABE52;
+$yellow: #ECBC41;
+$blue: #1976d2;
+$bluegreen: #2ABE9C;
+$lightblue: #C1DEFD;
+
+// Misc
+$red: #db4437;
+$black: #000;
+$white: #fff;
+
+// Background Colors
+$base-background-color: #ffffff;//#efeee9;
+$secondary-background-color : #FAFAFA; //light grey //f6f6f6;
+$tertiary-background-color : #efeee9; //beige // #444444;
+$quaternary-background-color : #444444; //dark grey
+
+$light-background-color: $white;
+
+// Brand
+$base-brand-color: #4674af;
+$base-brand-color-dark: darken($base-brand-color, 8%);
+//$secondary-brand-color: #373b37;
+//$tertiary-brand-color: #e0e0e0;
+
+// Font Colors
+$base-font-color: #444444;
+$secondary-font-color: #E1E1E1;
+$tertiary-font-color: #BEBEBE;
+
+$light-font-color: #FFFFFF;//#E1E1E1;
+$grey-font-color: #7F7F7F;
+
+//Text shadow
+$base-text-shadow: 0px 0px 15px #000000;//2px 4px 3px rgba(0,0,0,0.3);
+
+$play-background-color: #282828;
+$play-secondary-background-color: #363636;
+$play-color: #E1E1E1;
+
+// =================================================
+// Paths 
+// =================================================
+$path-images: '../assets/images/';
+$path-fonts: '../assets/fonts/';
+
+// =================================================
+// Fonts
+// =================================================
+
+// Font familys
+$oswald: 'Oswald', sans-serif;
+// $roboto: 'Roboto', sans-serif;
+// $droidsans: 'Droid Sans', sans-serif;
+$opensans: 'Open Sans', sans-serif;
+
+// Text
+$base-font-family: $opensans;
+$base-font-weight: 400;
+$light-font-weight: 300;
+$medium-font-weight: 600;
+$bold-font-weight: 600; //not using bold
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$base-font-name: 'base';
+
+// Extra Small Text
+$extra-small-font-size: $base-font-size - 4px;
+$extra-small-font-name: 'extra-small';
+
+// Small Text
+$small-font-size: $base-font-size - 2px;
+$small-font-name: 'small';
+
+// Large Text
+$large-font-size: $base-font-size + 2px;
+$large-font-name: 'large';
+
+// Text
+$heading-font-family: $oswald;
+$heading-font-weight: 400;
+$heading-light-font-weight: 300;
+$heading-bold-font-weight: 600;
+$heading-font-size: 26px;
+$heading-line-height: 1.5;
+$heading-text-transform: none;
+$heading-font-name: 'heading';
+$heading-letter-spacing: 0;
+
+// h1
+$h1-font-size: 40px;
+$h1-font-size-lg: 40px;
+$h1-font-size-md: 38px;
+$h1-font-size-sm: 38px;
+
+// h2
+$h2-font-size: 36px;
+$h2-font-size-lg: $h2-font-size;
+$h2-font-size-md: $h2-font-size-lg;
+$h2-font-size-sm: $h2-font-size-md;
+
+// h3
+$h3-font-size: $h1-font-size - 8px;
+$h3-font-size-lg: $h1-font-size-lg - 8px;
+$h3-font-size-md: $h1-font-size-md - 8px;
+$h3-font-size-sm: $h1-font-size-sm - 8px;
+
+// h4
+$h4-font-size: $h1-font-size - 12px;
+$h4-font-size-lg: $h1-font-size-lg - 12px;
+$h4-font-size-md: $h1-font-size-md - 12px;
+$h4-font-size-sm: $h1-font-size-sm - 12px;
+
+// h5
+$h5-font-size: $h1-font-size - 16px;
+$h5-font-size-lg: $h1-font-size-lg - 16px;
+$h5-font-size-md: $h1-font-size-md - 16px;
+$h5-font-size-sm: $h1-font-size-sm - 16px;
+
+// h6
+$h6-font-size: $h1-font-size - 20px;
+$h6-font-size-lg: $h1-font-size-lg - 20px;
+$h6-font-size-md: $h1-font-size-md - 20px;
+$h6-font-size-sm: $h1-font-size-sm - 20px;
+
+// =================================================
+// Border
+// =================================================
+
+// Border
+$base-border-color: #E1E1E1;//#d0d0d0;
+$base-border: 1px solid $base-border-color;
+$base-border-thickness: 1px;
+$base-border-style: solid;
+$secondary-border-color : $secondary-background-color;
+$secondary-border: 1px solid $secondary-border-color;
+
+// =================================================
+// Breakpoints
+// =================================================
+
+$breakpoint-xl: 1400px;
+$breakpoint-lg: 1024px;
+$breakpoint-md: 768px;
+$breakpoint-ph: 767px;
+$breakpoint-sm: 480px;
+$breakpoint-xs: 320px; 
+
+// =================================================
+//Gaps
+// =================================================
+
+$gap-xxl: 35px;
+$gap-xl: 30px;
+$gap-lg: 25px;
+$gap: 20px;
+$gap-md: 15px;
+$gap-sm: 10px;
+$gap-xs: 5px;
+
+$gap-triple: $gap * 3;
+$gap-double: $gap * 2;
+$gap-half: $gap * 0.5;
+$gap-none: 0;
+
+// =================================================
+// Animation
+// =================================================
+
+$base-transition-duration: 0.2s;
+$base-transition-timing: linear; 
+$base-transition: all $base-transition-duration $base-transition-timing;
+
+// =================================================
+// Misc
+// =================================================
+
+$base-border-radius : 0;
+
+// =================================================
+// Buttons
+// =================================================
+
+$button-color: $base-font-color;
+$button-background-color: $base-background-color;
+$button-border-radius: $base-border-radius;
+$button-font-family: $oswald;
+$button-font-size: 12px;
+$button-font-weight: $heading-font-weight;
+$button-line-height: 1;
+$button-hover-color: $light-font-color;
+$button-hover-background-color: $base-brand-color;
+$button-border-color: $base-border-color;
+$button-text-transform: uppercase;
+$button-font-name: 'button';
+$button-brand-color: $light-font-color;
+$button-brand-background-color: $base-brand-color;
+$button-brand-hover-color: $light-font-color; 
+$button-brand-hover-background-color: $base-brand-color-dark;
+ 
+// =================================================
+// Links
+// =================================================
+
+$link-color: $base-brand-color;
+$link-hover-color: $base-brand-color;
+//$link-text-transform: none;
+//$link-font-family: $base-font-family;
+//$link-font-size: $base-font-size;
+//$link-font-weight: $base-font-weight;
+//$link-text-decoration: underline;
+//$link-font-name: 'link';
+
+// =================================================
+// Page section
+// =================================================
+
+$page-section-padding: $gap-double;
+$page-section-narrow-max-width: 700px;
+$page-section-max-width: 1280px;
+$page-section-min-width: 700px;
+
+// =================================================
+// Header
+// =================================================
+
+$header-background-color: $white;
+$header-subweb-background-color: $secondary-background-color;
+$header-logo-width: 40px;
+$header-logo-width-subweb: 120px;
+$header-skogsskolan-logo-width: 146px;
+$header-logo-width-md: 40px;
+$header-logo-small-width: 40px;
+$header-bottom-border: none;
+$header-color: $base-font-color;
+$header-hover-color: $base-brand-color;
+$header-submenu-hover-color: $base-brand-color;
+$header-text-transform: uppercase;
+$header-scrolled-background-color: rgba($header-background-color,0.7);
+$header-subweb-scrolled-background-color: rgba($header-subweb-background-color,0.9);
+$header-scrolled-border-bottom: $base-border;
+$header-font-size: 14px;
+$header-inverted-background-color: #363636;
+$header-inverted-scrolled-background-color: rgba($header-inverted-background-color,0.95);
+$header-inverted-color: $play-color;
+$header-inverted-hover-color: $base-brand-color;
+
+// =================================================
+// Footer
+// =================================================
+
+$footer-background-color: $quaternary-background-color;
+$footer-logo-width: 400px;
+$footer-top-border: none; 
+$footer-color: $light-font-color;
+$footer-copyright-color: $grey-font-color;
+//$header-hover-color: $base-brand-color;
+//$footer-text-transform: uppercase;
+
+// =================================================
+// Breadcrumb
+// =================================================
+ 
+$breadcrumb-padding: $gap-half $page-section-padding;
+$breadcrumb-font-size: $small-font-size;
+$breadcrumb-background-color: #363636;
+$breadcrumb-color: $light-font-color;
+
+// =================================================
+// Text inputs
+// =================================================
+
+$text-input-background-color: $base-background-color;
+$text-input-border: $base-border;
+$text-input-padding: $gap-sm $gap;
+$text-input-color: $grey-font-color;
+
+// =================================================
+// Side nav
+// =================================================
+
+$sidenav-width: 320px;
+$sidenav-background-color: $base-background-color;
+$sidenav-border-color: $base-border-color;
+
+// =================================================
+// Accordion
+// =================================================
+  
+$accordion-border-color: $base-border-color;
+$accordion-color: $base-font-color;
+$accordion-background-color: $base-background-color;
+$accordion-hover-color: $accordion-color;
+$accordion-hover-background-color: $accordion-background-color;
+$accordion-sub-color: $accordion-color;
+$accordion-sub-background-color: $secondary-background-color;
+$accordion-sub-hover-color: $accordion-color;
+$accordion-sub-hover-background-color: $accordion-sub-background-color;
+$accordion-padding: $gap-md $gap-xl;
+$accordion-sub-indent: $gap*3;
+$accordion-font: 'base';
+$accordion-tabs-padding: $gap-md $gap;
+$accordion-tabs-hover-color: $base-brand-color;
+$accordion-tabs-hover-background-color: $accordion-background-color;
+$accordion-tabs-font: $button-font-name;
+$accordion-tabs-content-background-color: $base-background-color;
+
+
+// =================================================
+// Grid 
+// =================================================
+
+$grid-gap: $gap-double;
+
+// =================================================
+// Icon
+// =================================================
+
+$icon-color: $base-font-color;
+$icon-background-color: $secondary-background-color;
+
+// =================================================
+// Cards
+// =================================================
+
+$card-background-color: $secondary-background-color;
+$card-overlay-opacity: 0.5;
+$card-text-padding-horizontal: $gap-double;
+$card-text-padding-vertical: $gap-xl;
+$card-secondary-color: $white;
+$card-image-min-height: 250px;
+$card-image-min-height-sm: 200px;
+$card-horizontal-image-size: 30%;
+$card-horizontal-text-size: 70%;
+$card-horizontal-image-min-height: 200px;
+$card-list-item-image-size: $card-horizontal-image-size;
+$card-list-item-text-size: $card-horizontal-text-size;
+$card-list-item-image-min-height: $card-horizontal-image-min-height;
+$card-list-item-text-padding: $gap;
+$card-image-left-image-size: 50%;
+$card-image-left-text-size: 50%;
+$card-image-left-image-min-height: 56.25%;
+$card-youtube-video-size: 50%;
+$card-youtube-text-size: 50%;
+$card-press-item-date-size: 10%;
+$card-press-item-text-size: 65%;
+$card-news-item-date-size: 10%;
+$card-news-item-text-size: 65%;
+$card-news-item-image-size: 25%;
+$card-news-item-image-min-height: $card-horizontal-image-min-height;
+$card-news-item-text-padding: $gap;
+$card-contact-image-size: 20%;
+$card-contact-text-size: 80%;
+$card-contact-image-min-height: 40px;
+$card-contact-small-image-min-height: 80px;
+$card-play-featured-image-min-height: 200px;
+$card-play-list-image-min-height: 150px;
+$card-play-top-image-min-height: 400px;
+$card-related-item-image-min-height: 180px;
+$card-course-image-min-height: 180px;
+$card-course-category-image-min-height: 250px;
+$card-press-big-image-min-height: 250px;
+$card-press-image-min-height: 180px;
+$card-tag-background-opacity: 0.92;
+$card-press-horizontal-image-size: 50%;
+$card-press-horizontal-text-size: 50%;
+$card-press-horizontal-image-min-height: 180px;
+$card-school-horizontal-image-size: 50%;
+$card-school-horizontal-text-size: 50%;
+$card-school-horizontal-image-min-height: 280px;
+
+// =================================================
+// Carousel
+// =================================================
+
+$carousel-elements-color: $base-font-color;
+$carousel-inverted-elements-color: $play-color;
+$carousel-dot-size: 8px;
+$carousel-arrow-size: 24px;//$gap;
+$carousel-elements-not-active-opacity: 0.6;
+
+// =================================================
+// Slider
+// =================================================
+
+$slider-elements-color: $white;
+$slider-dot-size: 8px;
+$slider-arrow-size: $gap;
+$slider-elements-not-active-opacity: 0.5;
+$slider-figcaption-background-color: $base-brand-color;
+$slider-figcaption-color: $white;
+$slider-figcaption-text-transform: uppercase;
+$slider-logo-width: 380px;
+$slider-logo-width-lg: 360px;
+$slider-logo-width-md: 340px;
+$slider-logo-width-ph: 300px;
+$slider-logo-width-sm: 280px;
+
+// =================================================
+// Lightbox
+// =================================================
+
+$lightbox-background-color: rgba($quaternary-background-color, 0.8);
+$lightbox-color: $base-font-color;
+$lightbox-icon-color: $base-font-color;
+$lightbox-icon-disabled-opacity: 0.3;
+$lightbox-icon-size: $gap;
+$lightbox-top-bar-background-color: $base-background-color;
+$lightbox-video-max-width: 1024px;
+
+// =================================================
+// Page image
+// =================================================
+
+$page-image-text-font-color: $secondary-font-color;
+$page-image-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+// =================================================
+// Page body
+// =================================================
+
+$page-body-max-width: $page-section-min-width;
+
+// =================================================
+// Cookie
+// =================================================
+
+$cookie-background-color: rgba($quaternary-background-color, 0.96);
+$cookie-color: $light-font-color;
+
+// =================================================
+// Select, Input
+// =================================================
+
+$select-background-color: $base-background-color;
+$select-color: $base-font-color;
+$select-border-radius: 0;
+$select-background-image: $path-images+'arrow-down.svg';
+$select-text-transform: uppercase;
+$select-border-color: $base-background-color;
+$input-border-radius: 0; 
+
+// =================================================
+// Loader
+// =================================================
+
+$loader-thickness: 2px;
+$loader-color: $base-font-color;
+$loader-light-color: $light-font-color;
+
+// =================================================
+// Login
+// =================================================
+
+$login-background-color: $base-background-color;//rgba($base-background-color,0.9);
+$login-logo-width: 350px;
+$login-max-width: 500px;
+
+// =================================================
+// Hero Image
+// =================================================
+
+$hero-image-min-height: 220px;
+$hero-image-min-height-md: 220px;
+$hero-image-color: $light-font-color;
+$hero-image-text-shadow: $base-text-shadow;
+$hero-courses-all-min-height: 160px;
+$hero-courses-all-min-height-md: 120px;
+$hero-image-padding: 30%;
+$hero-image-padding-lg: 56.25%;
+$hero-image-padding-ph: 500px;
+
+// =================================================
+// Progress bar
+// =================================================
+
+$progress-background: $tertiary-background-color;//$base-background-color;
+$progress-border: none;//1px solid $tertiary-background-color;
+$progress-meter-color: $base-brand-color;
+$progress-meter-border: none;
+$progress-color: $light-font-color;
+
+// =================================================
+// Vex
+// =================================================
+
+$vex-content-max-width: 500px;
+$vex-content-background-color: $base-background-color;
+$vex-overlay-background-color: rgba($black, 0.7);

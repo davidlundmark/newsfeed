@@ -1,0 +1,38 @@
+.side-nav {
+    display: none;
+    //width: $sidenav-width;
+    //@include fixedOverlay($left: auto, $background-color: $sidenav-background-color, $z-index: 999);
+    @include fixedOverlay($z-index: 999);
+    background-color: rgba($white, 0);
+    //@include border($sidenav-border-color, left);
+    //will-change: transform;
+    @include breakpoint($breakpoint-lg) {
+        display: block;
+    }
+    max-height: 100%;
+    //@include translateX($sidenav-width);
+    @include translateX(100%);
+    // @include transition(all, 0.4s, $easeOutCubic);
+    @include transition(all, 0.4s, $easeOutSine);
+    &.open {
+        @include translateX(0);
+    }
+    height: 100%;
+    overflow-y: hidden;
+    .has-touch & {
+        //overflow-y: scroll;
+        cursor: pointer;
+        .content {
+            min-height: 101%;
+        }
+    }
+    .no-touch & {
+        .content {
+            height: 100%;
+        }
+    }
+    &.scroll {
+        overflow-y: scroll;
+        //-webkit-overflow-scrolling: touch;
+    }
+}

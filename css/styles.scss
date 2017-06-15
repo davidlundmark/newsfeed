@@ -1,0 +1,337 @@
+@import 'variables';
+@import 'helper';
+@import './lib/base';
+@import './core/base';
+@import './components/base';
+.text-wrapper {
+    line-height: 1.7;
+    display: inline;
+    box-shadow: $gap-half 0 0 rgba($black, $card-overlay-opacity), -$gap-half 0 0 rgba($black, $card-overlay-opacity);
+    background-color: rgba($black, $card-overlay-opacity);
+    -webkit-box-decoration-break: clone;
+}
+
+.arrow-down {
+    z-index: 3;
+    bottom: $gap-double;
+    position: fixed;
+    left: 50%;
+    text-align: center;
+    @include translateX(-50%);
+    .icon {
+        //text-shadow: $base-text-shadow;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        color: $light-font-color;
+        font-size: $gap-double;
+        animation: bounce 1s ease-out 0s infinite alternate;
+        animation-timing-function: $easeOutQuad;
+        @include forceHarwareAcceleration();
+    }
+}
+
+@keyframes bounce {
+    0% {
+        bottom: -$gap;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+.grid-section {
+    &:not(.aside-section) {
+        background-color: $tertiary-background-color;
+    }
+    + .grid-section {
+        > .section-container {
+            padding-top: 0;
+        }
+    }
+}
+
+.search {
+    &-header-section {}
+    &-count-section {
+        &:not(.no-results) {
+            > .section-container {
+                padding-bottom: $page-section-padding / 2;
+            }
+        }
+        .section-title {
+            margin-bottom: 0;
+        }
+    }
+    &-header-section {
+        .button {
+            width: 100%;
+        }
+    }
+    &-result-section {
+        > .section-container {
+            padding-top: 0;
+        }
+        .search-item {
+            padding: $gap-md 0;
+            @include border($dir: top);
+            p:last-child {
+                margin-bottom: 0;
+            }
+            &:first-child {
+                border-top: none;
+            }
+        }
+        // .button {
+        //     margin-top: $gap;
+        // }
+    }
+}
+
+.calendar-grid-section,
+.careers-info-section,
+.pressphotos-grid,
+.search-result-section,
+.search-header-section {
+    background-color: $base-background-color;
+}
+
+.related-items,
+.news-grid-section,
+.course-slick-section,
+.course-grid-section,
+.map-section,
+.course-categories,
+.documents-section,
+.press-section {
+    background-color: $tertiary-background-color;
+}
+
+.careers-apply-section,
+.careers-section,
+.office-section,
+.contacts-grid {
+    background-color: $secondary-background-color;
+}
+
+// .contacts-grid + .map-section {
+//     background-color: $secondary-background-color;
+// }
+
+// .news-grid-section + .calendar-grid-section {
+//     > .section-container {
+//         padding-top: 0;
+//     }
+// }
+
+.news-grid-section {
+    .row > .column {
+        background-color: $card-background-color;
+    }
+}
+
+.map-section {
+    .map {
+        .map-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+            .map-canvas {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
+                .gm-style,
+                .gm-style .gm-style-iw {
+                    @include setFont($base-font-name);
+                    @include setFontSize($small-font-size);
+                }
+                .div-main-infoWindow {
+                    .link {
+                        margin-bottom: 0;
+                    }
+                    strong {
+                        @extend .medium;
+                    }
+                    p {
+                        margin-bottom: $gap-xs;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.page-image {
+    .section-container {
+        height: 30vh;
+        overflow: hidden;
+        // @include breakpoint($breakpoint-lg) {
+        //     height: auto;
+        //     overflow: visible;
+        // }
+        @include breakpoint($breakpoint-lg) {
+            height: 35vh;
+        }
+    }
+    picture {
+        @include centerVertical();
+        // @include breakpoint($breakpoint-lg) {
+        //     position: relative;
+        //     top: auto;
+        //     transform: none;
+        // }
+    }
+    &-text-overlay {
+        @include centerElement();
+        //color: $secondary-font-color;
+        color: $light-font-color;
+        text-align: center;
+        // .page-title {
+        //     margin-bottom: 0;
+        //     //text-shadow: $page-image-text-shadow;
+        //     background-color: rgba($black, $card-overlay-opacity);
+        //     padding: $gap-xs $gap-half;
+        // }
+        .text-content {
+            margin-left: $gap-half;
+        }
+        .page-title {
+            @extend .text-wrapper;
+            padding-bottom: $gap-xs;
+            line-height: 1.8;
+        }
+        // @include breakpoint($breakpoint-md) {
+        //     width: calc(100% - #{$gap * 2});
+        // }
+    }
+}
+
+.page-body {
+    &-wrapper {
+        max-width: $page-body-max-width;
+        margin: 0 auto;
+    }
+    .page {
+        &-summary {
+            @include setFont($base-font-name);
+            font-weight: $medium-font-weight;
+            font-size: $large-font-size;
+            margin-bottom: $gap;
+        }
+        &-text {
+            //margin-bottom: $gap;
+            a {
+                @include hoverLink($base-brand-color, $base-brand-color-dark);
+            }
+        }
+        &-date {
+            font-size: $small-font-size;
+            //margin-top: $gap-xl;
+            //line-height: 1;
+            &.published {
+                margin-right: $gap;
+            }
+            &.published,
+            &.modified {
+                display: inline-block;
+            }
+        }
+        &-contact {}
+        &-subtitle,
+        &-image,
+        &-video {
+            margin-top: $gap-double;
+        }
+    }
+}
+
+.no-result {
+    display: none;
+    margin: 0;
+    &.show {
+        display: block;
+    }
+}
+
+noscript {
+    @include fixedOverlay();
+    > div {
+        @include centerElement();
+        text-align: center;
+    }
+}
+
+.hero-image {
+    .background-image {
+        &:not(.use-percent) {
+            @at-root .courses-all-section#{&} {
+                min-height: $hero-courses-all-min-height;
+                @include breakpoint($breakpoint-lg) {
+                    min-height: $hero-courses-all-min-height-md;
+                }
+            }
+            min-height: $hero-image-min-height;
+            @include breakpoint($breakpoint-md) {
+                min-height: $hero-image-min-height-md;
+            }
+        }
+        &.use-percent {
+            min-height: 0;
+            padding-bottom: $hero-image-padding;
+            @include breakpoint($breakpoint-lg) {
+                padding-bottom: $hero-image-padding-lg;
+            }
+            @include breakpoint($breakpoint-ph) {
+                padding-bottom: $hero-image-padding-ph;
+            }
+        }
+    }
+    .text {
+        width: 60%;
+        //letter-spacing: 1px;
+        color: $hero-image-color;
+        text-shadow: $hero-image-text-shadow;
+        @include centerElement();
+        //@include sharpen();
+        text-align: center;
+        @at-root .courses-all-section#{&} {
+            a {
+                @include hoverLink($light-font-color, $base-brand-color);
+                .no-touch & {
+                    &:hover {
+                        .icon {
+                            margin-left: $gap-half;
+                        }
+                    }
+                }
+            }
+        }
+        .icon {
+            font-size: $h2-font-size - 6px;
+            top: 1px;
+            position: relative;
+            .no-touch & {
+                @include transition();
+            }
+        }
+        //text-transform: $hero-image-text-transform;
+        > *:last-child {
+            margin-bottom: 0;
+        }
+        @include breakpoint($breakpoint-lg) {
+            width: calc(80% - #{$page-section-padding} - #{$gap * 2});
+        }
+        @include breakpoint($breakpoint-ph) {
+            width: calc(100% - #{$page-section-padding} - #{$gap * 2});
+        }
+        .button {
+            text-shadow: none;
+            margin-top: $gap;
+        }
+    }
+}

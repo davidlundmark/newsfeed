@@ -1,0 +1,33 @@
+.cookie {
+    text-align: center;
+	position: fixed;
+    bottom: 0; 
+    z-index: 9999;
+    background-color: $cookie-background-color;
+    width: 100%;
+    color: $cookie-color;
+
+    &-container {
+    	@extend .section-container;
+    }
+
+    .text {
+        margin-bottom: $gap-md;
+    }
+
+    // .button {
+    //  margin-right: $gap-half;
+
+    //  &:last-child {
+    //      margin-right: 0;
+    //  }
+    // }
+
+    a {
+        @extend .medium;
+        margin-right: $gap;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

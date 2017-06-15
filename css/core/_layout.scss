@@ -1,0 +1,93 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    #breadcrumbMenuSubcontrol_context_menu & {
+        box-sizing: content-box;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    min-width: $breakpoint-xs;
+    background-color: $base-background-color;
+}
+
+.content-wrapper {
+    min-height: 100px;
+}
+
+#page-wrapper {
+    overflow-x:hidden;
+}
+
+.page-section {  
+    position: relative;
+    background-color: $secondary-background-color;
+    z-index: 2;
+    &.page-body {
+        background-color: transparent;
+        > .section-container {
+            //background-color: $base-background-color;
+            //margin-top: -$gap-double;
+            @include breakpoint($breakpoint-lg) {
+                margin-top: 0;
+            }
+        }
+    }
+    &.fixed-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        //will-change: transform;
+        @include breakpoint($breakpoint-lg) {
+            position: absolute;
+        }
+    }
+}
+
+.section-container {
+    position: relative;
+    margin: 0 auto;
+    width: auto;
+    &:not(.full-width) {
+        &:not(.narrow-width) {
+            max-width: $page-section-max-width;
+        }
+        &.narrow-width {
+            max-width: $page-section-narrow-max-width;
+        }
+        padding: $page-section-padding;
+        // @include breakpoint($breakpoint-lg) {
+        //     padding: $page-section-padding/2;
+        // }
+    }
+    // &:not(.full-width):not(.min-width) {
+    //     &:not(.narrow-width) {
+    //         max-width: $page-section-max-width;
+    //     }
+    //     &.narrow-width {
+    //         max-width: $page-section-narrow-max-width;
+    //     }
+    //     padding: $page-section-padding;
+    //     @include breakpoint($breakpoint-lg) {
+    //         padding: $page-section-padding/2;
+    //     }
+    // }
+    // &:not(.full-width) {
+    //     &.min-width {
+    //         max-width: $page-section-min-width;
+    //         padding: $page-section-padding;
+    //     }
+    // }
+}

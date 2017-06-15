@@ -1,0 +1,26 @@
+.state-indicator {
+    position: absolute;
+    top: -999em;
+    left: -999em;
+    z-index: 1;
+
+    @include breakpoint($breakpoint-xl) {
+        z-index: 2;
+    }
+
+    @include breakpoint($breakpoint-lg) {
+    	z-index: 3;
+    }
+
+    @include breakpoint($breakpoint-md) {
+    	z-index: 4;
+    }
+
+    @include breakpoint($breakpoint-ph) {
+        z-index: 5;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+    	z-index: 6;
+    }
+}

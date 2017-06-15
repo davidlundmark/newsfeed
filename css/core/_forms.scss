@@ -1,0 +1,164 @@
+fieldset {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    //font-weight: 600;
+    margin-bottom: $gap-half;
+    padding: 0;
+}
+
+label {
+    display: block;
+    //font-weight: 600;
+    margin-bottom: $gap-half;
+    @include alignItems();
+}
+
+input,
+select,
+textarea {
+    display: block;
+    //@include setTextFormat($base-font-family, $base-font-size, $base-font-weight, $base-line-height);
+    &:-webkit-autofill {
+        background-color: $button-background-color !important;
+    }
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input:not([type]),
+textarea,
+select {
+    background-color: $text-input-background-color;
+    border: $text-input-border;
+    border-radius: $base-border-radius;
+    padding: $text-input-padding;
+    appearance: none;
+    //box-shadow: none;
+    margin-bottom: $gap-half;
+    color: $grey-font-color;
+    -webkit-text-fill-color: $grey-font-color;
+    @include transition(border-color);
+    width: 100%;
+    &:focus {
+        border-color: darken($base-border-color, 10%);
+        outline: none;
+    }
+    .no-touch & {
+        &:hover {
+            border-color: darken($base-border-color, 10%);
+        }
+    }
+    &:disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    &::placeholder {
+        color: $base-border-color;
+    }
+}
+
+input {
+    border-radius: $input-border-radius !important;
+}
+
+select {
+    background-image: url($select-background-image);
+    background-size: 15px;
+    background-position: right $gap center;
+    background-repeat: no-repeat;
+    text-transform: $select-text-transform; // appearance: menulist;
+    appearance: none;
+    //padding-left: $gap - 5px;
+    background-color: $select-background-color;
+    color: $select-color;
+    border-color: $select-border-color;
+    border-radius: $select-border-radius;
+    //@extend .bold;
+    //@extend .letter-spacing-small;
+    //font-size: $button-square-font-size;
+    font-size: $base-font-size;
+}
+
+textarea {
+    resize: vertical;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    display: inline;
+    margin-right: $gap-half;
+    margin-left: 1px;
+    //vertical-align: middle;
+}
+
+[type="file"] {
+    margin-right: $gap;
+    width: 100%;
+}
+
+optgroup {
+    font-weight: normal;
+}
+
+.form-section {
+    form {
+        .required-field {
+            //.checkbox:after ,
+            .control-label {
+                @extend .required-mark;
+            }
+        }
+        fieldset {
+            > legend {
+                @extend .bold;
+            }
+            &.scfSectionBorder {
+                > div {
+                    margin-left: $gap;
+                }
+                margin-bottom: $gap;
+            }
+        }
+        .btn {
+            color: #FFFFFF;
+            background-color: #2ABE52;
+            border: none;
+            /* text-shadow: 0 0 black; */
+            margin-top: 10px;
+            width: 100%;
+        }
+    }
+}
+
+.interest-section {
+    .required-field {
+        @extend .required-mark;
+    }
+}
+
+.required-mark {
+    &:before {
+        color: #d00;
+        content: "*";
+        @extend .bold;
+        margin-top: $gap-xs;
+        margin-right: $gap-xs;
+    }
+}

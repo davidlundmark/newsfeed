@@ -1,0 +1,33 @@
+table {
+  border-collapse: collapse;
+  margin: $gap-half 0;
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 0;
+}
+
+th {
+  @include setFont($large-font-name);
+  border-bottom: $base-border;
+  text-align: left;
+}
+
+td {
+  border-bottom: $base-border;
+}
+
+tr {
+  &.even {
+    background-color: $secondary-background-color;
+  }
+}
+
+td, th {
+  padding: $gap-half;
+}
+
+tr,
+td,
+th {
+  vertical-align: middle;
+}

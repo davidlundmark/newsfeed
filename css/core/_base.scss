@@ -1,0 +1,128 @@
+@import "easing";
+@import "layout";
+@import "buttons";
+@import "typography";
+@import "forms";
+@import "lists";
+@import "media";
+@import "tables";
+@import "icons";
+@import "colors";
+@import "images";
+@import "alerts";
+body {
+    overflow-x: hidden;
+    // &.subweb {
+    //     min-height: 101%;
+    // }
+}
+
+.body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+.overlay {
+    @include fixedOverlay();
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.overflow-visible {
+    overflow: visible !important;
+}
+
+.no-scroll {
+    overflow: hidden;
+    @include breakpoint($breakpoint-lg) {
+        cursor: pointer; //needed for enable click event on mobile
+    }
+}
+
+.text-shadow {
+    //text-shadow: 0 0 15px #000;
+    text-shadow: $page-image-text-shadow;
+}
+
+.hide {
+    display: none !important;
+    @include breakpoint($breakpoint-lg+1px) {
+        &-lg {
+            display: none !important;
+        }
+    }
+    @include breakpoint($breakpoint-md+1px) {
+        &-md {
+            display: none !important;
+        }
+    }
+    @include breakpoint($breakpoint-sm+1px) {
+        &-sm {
+            display: none !important;
+        }
+    }
+    &-bigger {
+        @include breakpoint($breakpoint-lg+1px, false) {
+            &-lg {
+                display: none !important;
+            }
+        }
+        @include breakpoint($breakpoint-md+1px, false) {
+            &-md {
+                display: none !important;
+            }
+        }
+        @include breakpoint($breakpoint-sm+1px, false) {
+            &-sm {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.show {
+    display: block;
+    //display: none !important;
+    @include breakpoint($breakpoint-lg) {
+        &-lg {
+            display: auto !important;
+        }
+    }
+    @include breakpoint($breakpoint-md) {
+        &-md {
+            display: auto !important;
+        }
+    }
+    @include breakpoint($breakpoint-sm) {
+        &-sm {
+            display: auto !important;
+        }
+    }
+    &-bigger {
+        @include breakpoint($breakpoint-lg, false) {
+            &-lg {
+                display: auto !important;
+            }
+        }
+        @include breakpoint($breakpoint-md, false) {
+            &-md {
+                display: auto !important;
+            }
+        }
+        @include breakpoint($breakpoint-sm, false) {
+            &-sm {
+                display: auto !important;
+            }
+        }
+    }
+}

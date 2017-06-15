@@ -1,0 +1,59 @@
+.label-with-icon {
+    &:not(.back-to-top) {
+        @include alignItems();
+    }
+    //display: table !important;
+    //width: 100%;
+    //table-layout: fixed;
+    > * {
+        //vertical-align: middle;
+        //display: table-cell;
+        &:nth-child(1) {
+            padding-right: $gap-half;
+            @at-root .small-gap#{&} {
+                padding-right: 0;
+            }
+        }
+        &.label {
+            //width: 85%;
+            text-align: left;
+            white-space: nowrap;
+        }
+        &.icon-container {
+            line-height: 0;
+            //width: 15%;
+            text-align: right;
+            > span {
+                //margin-top: 1px;
+                display: inline-block;
+                @at-root .back-to-top#{&} {
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+}
+
+// .label-with-icon {
+//     display: table !important;
+//     //width: 100%;
+//     table-layout: fixed;
+//     > * {
+//         vertical-align: middle;
+//         display: table-cell;
+//         &.label {
+//             //width: 85%;
+//             text-align: left;
+//             padding-right: $gap-half;
+//             white-space: nowrap;
+//         }
+//         &.icon-container {
+//             //width: 15%;
+//             text-align: right;
+//             > span {
+//                 margin-top: 1px;
+//                 display: inline-block;
+//             }
+//         }
+//     }
+// }

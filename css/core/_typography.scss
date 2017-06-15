@@ -1,0 +1,316 @@
+body {
+    color: $base-font-color;
+    @include setFont($base-font-name);
+    -webkit-font-smoothing: antialiased;
+    header,
+    nav {
+        @include setTextFormat($heading-font-family, $base-font-size, $heading-font-weight);
+        .summary {
+            @include setFont($base-font-name);
+            font-size: $small-font-size;
+        }
+    }
+    footer {
+        @include setTextFormat($heading-font-family, $base-font-size, $heading-light-font-weight);
+    }
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    @include setFont($heading-font-name);
+    margin: 0 0 $gap-half;
+}
+
+h1,
+.h1 {
+    //@include setFont($h1-font-name);
+    @include setFontSize($h1-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h1-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h1-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h1-font-size-sm);
+    }
+}
+
+h2,
+.h2 {
+    @include setFontSize($h2-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h2-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h2-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h2-font-size-sm);
+    }
+}
+
+h3,
+.h3 {
+    @include setFontSize($h3-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h3-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h3-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h3-font-size-sm);
+    }
+}
+
+h4,
+.h4 {
+    @include setFontSize($h4-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h4-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h4-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h4-font-size-sm);
+    }
+}
+
+h5,
+.h5 {
+    @include setFontSize($h5-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h5-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h5-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h5-font-size-sm);
+    }
+}
+
+h6,
+.h6 {
+    @include setFontSize($h6-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h6-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h6-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h6-font-size-sm);
+    }
+}
+
+p {
+    margin: 0 0 $gap-half;
+}
+
+// a {
+//     border-style:none;
+//     border: 0;
+// }
+a,
+.link {
+    //@include setFont($link-font-name);
+    color: $link-color;
+    text-decoration: underline;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &:active,
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+    .no-touch & {
+        @include transition(color);
+        &:hover,
+        &.hover {
+            color: $link-hover-color;
+        }
+    }
+    &[class^="sc"] {
+        //sitecore fix
+        color: #2B2B2B !important;
+    }
+}
+
+a {
+    &.text-link {
+        //@extend .medium;
+        //@include animateLine();
+        @include hoverLink($base-brand-color, $base-brand-color-dark);
+    }
+    &.hover-link {
+        @include hoverLink($base-font-color);
+    }
+}
+
+hr {
+    border-bottom: $base-border;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    &:not(.minimal) {
+        margin: $gap 0;
+    }
+    &.minimal {
+        margin: 0;
+    }
+    &.dashed {
+        border-style: dashed;
+    }
+    &.thick {
+        border-width: 4px;
+    }
+    &.visible-hidden {
+        visibility: hidden;
+    }
+    &.divider {
+        margin: 0;
+        visibility: hidden;
+    }
+    &.brand {
+        margin: $gap-half 0;
+        border-width: 3px;
+        width: $gap-double;
+        border-color: $base-brand-color;
+    }
+}
+
+.link-icon {
+    display: inline-block;
+    line-height: 1;
+}
+
+.extra-small {
+    @include setFontSize($extra-small-font-size);
+}
+
+.small {
+    @include setFontSize($small-font-size);
+}
+
+.large {
+    @include setFontSize($large-font-size);
+}
+
+.light {
+    //font-weight: $base-font-weight;
+    font-weight: $light-font-weight;
+}
+
+.color-light {
+    color: $light-font-color;
+}
+
+// @include headings {
+//     &.light,
+//     .light {
+//         font-weight: $heading-bold-font-weight;
+//     }
+// }
+.normal {
+    font-weight: $base-font-weight;
+}
+
+.medium {
+    font-weight: $medium-font-weight;
+    //font-weight: $base-font-weight;
+}
+
+b,
+strong,
+.bold {
+    font-weight: $bold-font-weight;
+}
+
+@include headings {
+    &.bold,
+    .bold {
+        //font-weight: $heading-font-weight;
+        font-weight: $heading-bold-font-weight;
+    }
+    &.light,
+    .light {
+        font-weight: $heading-light-font-weight;
+    }
+}
+
+.page-slider .title {
+    @include setFont($heading-font-name);
+    @include setFontSize($h1-font-size);
+    margin: 0 0 $gap-half;
+    font-weight: $heading-light-font-weight;
+    @include setFontSize($h1-font-size);
+    @include breakpoint($breakpoint-lg) {
+        @include setFontSize($h1-font-size-lg);
+    }
+    @include breakpoint($breakpoint-md) {
+        @include setFontSize($h1-font-size-md);
+    }
+    @include breakpoint($breakpoint-sm) {
+        @include setFontSize($h1-font-size-sm);
+    }
+}
+
+.section,
+.article {
+    &-title {
+        // margin-bottom: $gap-double;
+        // padding-bottom: $gap;
+        margin-bottom: $gap;
+        padding-bottom: $gap-sm;//$gap-md;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            // height: 4px;
+            // bottom: -2px;
+            left: 0;
+            background-color: $base-font-color;
+            height: 2px;
+            bottom: -1px;
+        }
+
+        &.extra-margin {
+            margin-bottom: $gap-double;
+        }
+    }
+}
+
+.section-title {
+    letter-spacing: 1px;
+}
+
+// .section-subtitle {
+//     margin-bottom: $gap;
+// }
+
+.article-title {
+    margin-bottom: $gap;
+    &:after {
+        width: 40px;
+    }
+}
+
+.text-center {
+    text-align: center;
+}

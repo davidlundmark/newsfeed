@@ -1,0 +1,90 @@
+.image-map {
+    #image-map {
+        position: relative;
+        margin: 0 auto;
+        max-width: 360px;
+        svg path {
+            @for $i from 1 through 8 {
+                &#lan_#{$i} {
+                    cursor: pointer !important;
+                    .no-touch & {
+                        @include transition();
+                        &:hover {
+                            fill: $base-brand-color !important;
+                        }
+                    }
+                    &.open {
+                        fill: $base-brand-color !important;
+                    }
+                }
+            }
+        }
+    }
+    .map-text {
+        @include breakpoint($breakpoint-lg, false) {
+            position: absolute;
+            display: inline-block;
+        }
+        .title {
+            @include breakpoint($breakpoint-lg) {
+                text-align: center;
+                margin-bottom: $gap-double;
+            }
+            @include breakpoint($breakpoint-lg, false) {
+                margin: 0;
+            }
+        }
+        &.lan-text {
+            display: none;
+        }
+        &.top {
+            &-left,
+            &-right {
+                @include breakpoint($breakpoint-lg, false) {
+                    top: 0;
+                    &:before {
+                        display: block;
+                        content: '';
+                        height: 46px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        width: 100%;
+                        position: absolute;
+                    }
+                }
+            }
+            &-left {
+                @include breakpoint($breakpoint-lg, false) {
+                    left: 0;
+                    @include translateX(-100%);
+                    &:before {
+                        background-image: url($path-images + 'arrow_01.svg');
+                        left: 50%;
+                        @include translateY(100%);
+                    }
+                }
+            }
+            &-right {
+                @include breakpoint($breakpoint-lg, false) {
+                    right: -$gap;
+                    @include translateX(100%);
+                }
+            }
+        }
+    }
+    ul.list {
+        padding-bottom: $gap;
+        &:last-child {
+            padding-bottom: 0;
+        }
+        li {
+            padding-bottom: $gap-xs;
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+    a {
+        @include animateLine();
+    }
+}

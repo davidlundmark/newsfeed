@@ -1,0 +1,34 @@
+.loader,
+.loader:after {
+    border-radius: 50%;
+    width: $base-font-size - $loader-thickness;
+    height: $base-font-size - $loader-thickness;
+}
+
+.loader {
+    //top: -1px;
+    position: relative;
+    display: inline-block;
+    $loader-border: $loader-thickness solid rgba($loader-color, 0.2);
+    margin: 0;
+    text-indent: -9999em;
+    border: $loader-border;
+    border-left: $loader-border;
+    border-left-color: $loader-color;
+    transform: translateZ(0);
+    animation: load 1.1s infinite linear;
+
+    &.loader-light {
+        border-color: rgba($loader-light-color, 0.2);
+        border-left-color: $loader-light-color;
+    }
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,52 @@
+ul,
+ol {
+    &.accordion-tabs {
+        display: block;
+        @include clearfix();
+        @include resetList();
+        margin-bottom: $gap;
+        > li.menu-item:first-child {
+            > a {
+                @include border($accordion-border-color, left);
+            }
+        }
+        li.menu-item {
+            display: inline;
+            > a {
+                margin-right: -4px; //spacing fix
+                @include border($accordion-border-color);
+                border-left: none;
+                @include setFont($accordion-tabs-font);
+                color: $accordion-color;
+                display: inline-block;
+                padding: $accordion-tabs-padding;
+            }
+            &.is-expanded {
+                > a {
+                    background-color: $accordion-tabs-hover-background-color;
+                    color: $accordion-tabs-hover-color;
+                    @include border($accordion-tabs-content-background-color, bottom);
+                }
+            }
+            .no-touch & {
+                &:hover {
+                    > a {
+                        background-color: $accordion-tabs-hover-background-color;
+                        color: $accordion-tabs-hover-color;
+                    }
+                }
+            }
+        }
+        .accordion-content {
+            background-color: $accordion-tabs-content-background-color;
+            padding: $gap;
+            float: left;
+            width: 100%;
+            @include border($accordion-border-color);
+            margin-top: -1px;
+            display: none;
+            overflow: hidden;
+            overflow-x: auto;
+        }
+    }
+}

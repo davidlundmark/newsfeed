@@ -1,0 +1,48 @@
+@mixin burger($width: 30px, $height: 3px, $gutter: 6px, $color: #000, $border-radius: 3px, $transition-duration: .3s) {
+    position: relative;
+    margin-top: $height + $gutter;
+    margin-bottom: $height + $gutter;
+    user-select: none;
+    //@include translateZ(0);
+    &,
+    &:before,
+    &:after {
+        display: block;
+        width: $width;
+        height: $height;
+        background-color: $color;
+        border-radius: $border-radius;
+        //@include transition(all, 0.3s, $easeOutSine);
+        transition-property: all;//background-color, transform;
+        transition-duration: $transition-duration;
+    }
+    &:before,
+    &:after {
+        position: absolute;
+        content: "";
+    }
+    &:before {
+        top: -($height + $gutter);
+    }
+    &:after {
+        top: $height + $gutter;
+    }
+}
+
+// Burger animation
+@mixin burger-to-cross($height: 3px, $gutter: 6px, $color: #000) {
+    //will-change: auto;
+    &:before,
+    &:after {
+        background-color: $color;
+    }
+    & {
+        background-color: transparent !important;
+    }
+    &:before {
+        transform: translateY($gutter + $height) rotate(45deg);
+    }
+    &:after {
+        transform: translateY(-($gutter + $height)) rotate(-45deg);
+    }
+}

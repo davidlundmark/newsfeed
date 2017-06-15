@@ -1,0 +1,138 @@
+// Slider 
+.slick-list {
+    margin-left: -$gap;
+    margin-right: -$gap;
+    .slick-loading & {
+        background: #fff url($path-images+'ajax-loader.gif') center center no-repeat;
+    }
+}
+
+// Slide 
+.slick-slide {
+    margin: 0 $gap;
+    outline: none;
+    .slick-no-gap & {
+        margin: 0;
+    }
+    .slick-small-gap & {
+        margin: $gap-half;
+    }
+}
+
+// Arrows 
+.slick-prev,
+.slick-next {
+    z-index: 1;
+    display: block;
+    cursor: pointer;
+    @include centerVertical();
+    > .icon {
+        display: block;
+        font-size: $carousel-arrow-size;
+        color: $carousel-elements-color;
+        .slick-inverted & {
+            color: $carousel-inverted-elements-color;
+        }
+    }
+    &.slick-disabled {
+        opacity: $carousel-elements-not-active-opacity;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    &:not(.slick-disabled) {
+        .no-touch & {
+            @include transition();
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    @include breakpoint($breakpoint-lg) {
+        > .icon {
+            @include centerFlex();
+            @include createCircle($base-background-color);
+            .slick-inverted & {
+                background-color: $play-background-color;
+            }
+        }
+    }
+}
+
+.slick-prev {
+    left: -($carousel-arrow-size + $gap);
+    > .icon {
+        transform: rotate(180deg);
+    }
+    @include breakpoint($breakpoint-xl) {
+        left: -($carousel-arrow-size + $gap-half);
+    }
+    @include breakpoint($breakpoint-lg) {
+        //left: -($carousel-arrow-size - 2px);
+        left: -$gap-double/2 + 2px;
+    }
+}
+
+.slick-next {
+    right: -($carousel-arrow-size + $gap);
+    @include breakpoint($breakpoint-xl) {
+        right: -($carousel-arrow-size + $gap-half);
+    }
+    @include breakpoint($breakpoint-lg) {
+        //right: -($carousel-arrow-size - 2px);
+        right: -$gap-double/2 + 2px;
+    }
+}
+
+// Dots 
+.slick-slider {
+    &.slick-dotted {
+        margin-bottom: $gap-triple;
+    }
+    #play & {
+        &.slick-dotted {
+            margin-bottom: $gap;
+        }
+        &:not(.slick-dotted) {
+            //margin-bottom: $page-section-padding;
+        }
+    }
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -$gap-double;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    vertical-align: middle;
+    line-height: 0;
+    #play & {
+        bottom: -$gap-xl;
+    }
+    li {
+        position: relative;
+        display: inline-block;
+        height: $gap;
+        width: $gap;
+        margin: 0 $gap-xs;
+        padding: 0;
+        cursor: pointer;
+        .slick-dot {
+            display: block;
+            @include createCircle($carousel-elements-color, $carousel-dot-size);
+            .slick-inverted & {
+                @include createCircle($carousel-inverted-elements-color, $carousel-dot-size);
+            }
+            position: absolute;
+            top: calc(50% - #{$carousel-dot-size/2});
+            left: calc(50% - #{$carousel-dot-size/2});
+            opacity: $carousel-elements-not-active-opacity;
+        }
+        &.slick-active .slick-dot {
+            opacity: 1;
+        }
+    }
+}

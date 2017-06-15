@@ -1,0 +1,433 @@
+.sc-login {
+    #page-wrapper {
+        display: table;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+    }
+    .login-section {
+        display: table-cell;
+        vertical-align: middle;
+        > .section-container {
+            background-color: $login-background-color;
+            padding: $page-section-padding;
+            color: $base-font-color;
+            max-width: $login-max-width;
+            width: calc(100% - #{$gap * 2});
+        }
+    }
+    .logo-container {
+        text-align: center;
+        .logo {
+            width: $login-logo-width;
+            display: inline-block;
+        }
+    }
+    .form-wrap {
+        margin-top: $gap;
+        input {
+            margin-bottom: $gap;
+        }
+    }
+    .remember-me-wrap {
+        //display: none;
+        margin-top: $gap;
+        label {
+            margin-bottom: 0;
+        }
+        .forgot-pass-link-wrap {
+            display: none;
+        }
+    }
+    .login-button {
+        border: none;
+        display: block;
+        width: 100%;
+        color: $light-font-color;
+        background-color: $base-brand-color;
+    }
+}
+
+
+/** SITECORE DEFAULT LOGIN STYLES **/
+
+.scMessageBar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sc .sc-messageBar .alert {
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    text-shadow: none;
+    padding: 10px 35px 10px 45px;
+    position: relative;
+    margin: 0;
+    font-weight: 600;
+    background-color: #fefae6;
+    background-image: none;
+    filter: none;
+    color: #e0b406;
+    line-height: 20px;
+}
+
+.sc .sc-messageBar .alert:hover {
+    background-color: #fefae6;
+}
+
+.sc .sc-messageBar .alert p {
+    padding: 0;
+    margin: 0;
+}
+
+.sc .sc-messageBar .alert a {
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: underline;
+    float: none;
+    color: #e0b406;
+}
+
+.sc .sc-messageBar .alert.alert-error {
+    color: #f0f0f0;
+    background-color: #ca241c;
+}
+
+.sc .sc-messageBar .alert.alert-error .open {
+    display: block;
+}
+
+.sc .sc-messageBar .alert.alert-error .alert-icon {
+    background-position: -60px -31px;
+}
+
+.sc .sc-messageBar .alert.alert-error:hover {
+    background-color: #ca241c;
+}
+
+.sc .sc-messageBar .alert.alert-error a {
+    color: #f0f0f0;
+}
+
+.sc .sc-messageBar .alert.alert-error a .icon-chevron-down {
+    margin-top: -1px;
+    margin-left: 3px;
+}
+
+.sc .sc-messageBar .alert.alert-error .alert-error-details {
+    display: none;
+}
+
+.sc .sc-messageBar .alert.alert-error ul {
+    margin-top: 10px;
+}
+
+.sc .sc-messageBar .alert.alert-error ul li {
+    list-style-type: none;
+}
+
+.sc .sc-messageBar .alert.alert-success {
+    background-color: #e2eed7;
+}
+
+.sc .sc-messageBar .alert.alert-success a {
+    color: #588136;
+}
+
+.sc .sc-messageBar .alert.alert-success .alert-icon {
+    background-position: 0 0;
+}
+
+.sc .sc-messageBar .alert.alert-success:hover {
+    background-color: #e2eed7;
+}
+
+.sc .sc-messageBar .alert.alert-info {
+    color: #2694c0;
+    background-color: #d0ebf6;
+}
+
+.sc .sc-messageBar .alert.alert-info a {
+    color: #2694c0;
+}
+
+.sc .sc-messageBar .alert.alert-info .alert-icon {
+    background-position: 0px -32px;
+}
+
+.sc .sc-messageBar .alert.alert-info:hover {
+    background-color: #d0ebf6;
+}
+
+.sc .sc-messageBar .alert-icon {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    display: block;
+    height: 30px;
+    width: 30px;
+    background: url("/sitecore/shell/Themes/Standard/Images/Login/sc-message-bar-icons.png") no-repeat 0px 0px;
+    background-position: -28px -32px;
+}
+
+.sc .sc-messageBar .alert.alert-error .open {
+    display: block;
+}
+
+.sc .sc-messageBar .alert.alert-error a .icon-chevron-down {
+    margin-top: -1px;
+    margin-left: 3px;
+}
+
+.sc .sc-messageBar .alert.alert-error .alert-error-details {
+    display: none;
+}
+
+.sc .sc-messageBar .alert.alert-error ul {
+    margin-top: 10px;
+}
+
+.sc .sc-messageBar .alert.alert-error ul li {
+    list-style-type: none;
+}
+
+.sc .sc-messageBar .sc-messageBar-actionLink {
+    display: inline-block;
+    margin-left: 5px;
+    line-height: 20px;
+}
+
+.sc .sc-messageBar .sc-messageBar-actionLink-layout {
+    display: inline-block;
+    line-height: 20px;
+    vertical-align: bottom;
+}
+
+.sc .sc-messageBar .alert .alert-ico {
+    display: inline-block;
+    vertical-align: top;
+    width: 24px;
+    height: 24px;
+    background: transparent url("/sitecore/shell/Themes/Standard/Images/Login/sc-message-bar-icons.png") no-repeat;
+    margin-left: -30px;
+}
+
+.sc .sc-messageBar .alert-error .alert-ico {
+    background-position: 0 -50px;
+}
+
+.sc .sc-messageBar .alert-info .alert-ico {
+    background-position: 0 -25px;
+}
+
+.sc .sc-messageBar .icon-chevron {
+    background-image: none;
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: text-top;
+    width: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #e0b406;
+    margin-top: 5px;
+}
+
+.sc .sc-messageBar .icon-chevron.direction-up {
+    border-top: 0;
+    border-bottom: 5px solid #e0b406;
+}
+
+.sc .sc-messageBar .alert-info .icon-chevron.direction-up {
+    border-top: 0;
+    border-bottom: 5px solid #2694c0;
+}
+
+.sc .sc-messageBar .alert-error .icon-chevron.direction-up {
+    border-top: 0;
+    border-bottom: 5px solid #f0f0f0;
+}
+
+.sc .sc-messageBar .alert-info .icon-chevron {
+    border-top: 5px solid #2694c0;
+}
+
+.sc .sc-messageBar .alert-error .icon-chevron {
+    border-top: 5px solid #f0f0f0;
+}
+
+.sc .sc-messageBar .sc-messageBar-chevron-layout {
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.sc .sc-messageBar .sc-messageBar-chevron-layout a {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.sc .sc-messageBar .sc-messageBar-messages-wrap .alert {
+    margin: 0;
+}
+
+.sc .sc-messageBar .sc-messageBar-head.alert {
+    margin-bottom: 0;
+}
+
+.sc .sc-messageBar .sc-messageBar-messages-nested-children.sc-messageBar-messages-wrap .alert .alert-ico {
+    margin-top: 2px;
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+    vertical-align: top;
+    margin-left: -30px;
+    background-position: -27px 0;
+}
+
+.sc .sc-messageBar .sc-messageBar-messages-nested-children.sc-messageBar-messages-wrap .alert-error .alert-ico {
+    background-position: -27px -48px;
+}
+
+.sc .sc-messageBar .sc-messageBar-messages-nested-children.sc-messageBar-messages-wrap .alert-info .alert-ico {
+    background-position: -27px -24px;
+}
+
+.sc .sc-messageBar .sc-messageBar-messages-nested-children .alert {
+    padding: 5px 35px 5px 60px;
+}
+
+.sc .sc-messageBar .sc-messageBar-messageText {
+    display: inline-block;
+    padding-left: 5px;
+    vertical-align: bottom;
+    font-size: 12px;
+}
+
+.sc .sc-messageBar .alert .close {
+    margin-top: -11px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+}
+
+:-ms-input-placeholder {
+    color: #ACACAC !important;
+}
+
+.scMessageBar {
+    font-size: 12px;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+}
+
+
+/*.scMessageBar + .scMessageBar {
+        margin-top: 1px;
+    }
+
+    .scMessageBar.scMessageBarNested {
+    }*/
+
+.scMessageBar .scMessageBarIcon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32px;
+    min-width: 50px;
+    min-height: 50px;
+    align-self: stretch;
+}
+
+.scMessageBar .scMessageBarTextContainer {
+    padding: 11px 14px;
+}
+
+.scMessageBar .scMessageBarTextContainer .scMessageBarTitle {
+    display: block;
+    font-weight: 600;
+}
+
+.scMessageBar .scMessageBarTextContainer .scMessageBarText {}
+
+.scMessageBar .scMessageBarTextContainer .scMessageBarText + .scMessageBarText {
+    margin-top: 10px;
+}
+
+.scMessageBar.scWarning {
+    background-color: #FCE99C;
+    color: #897B2F;
+}
+
+.scMessageBar.scWarning .scMessageBarIcon {
+    background-image: url($path-images + 'warning_yellow.png');
+    background-color: #E0B406;
+}
+
+.scMessageBar.scInformation {
+    background-color: #AADBEE;
+    color: #185F7B;
+}
+
+.scMessageBar.scInformation .scMessageBarIcon {
+    background-image: url($path-images + 'information_blue.png');
+    background-color: #2694C0;
+}
+
+.scMessageBar.scError {
+    background-color: #F4B2AE;
+    color: #8B1913;
+}
+
+.scMessageBar.scError .scMessageBarIcon {
+    background-image: url($path-images + 'error_red.png');
+    background-color: #A21D16;
+}
+
+.scMessageBar .scDetailsLink {
+    color: inherit;
+    margin-left: 4px;
+    text-decoration: underline;
+}
+
+.scMessageBar .scDetailsLink:after {
+    width: 0;
+    height: 0px;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: transparent;
+    content: '';
+    display: inline-block;
+    margin-left: 6px;
+    position: relative;
+    bottom: 2px;
+}
+
+.scMessageBar .scMessageBarTextContainer.scExpanded .scDetailsLink:after {
+    border-width: 0 5px 5px 5px;
+}
+
+.scMessageBar.scError .scDetailsLink:after {
+    border-top-color: rgb(139, 25, 19);
+}
+
+.scMessageBar.scError .scMessageBarTextContainer.scExpanded .scDetailsLink:after {
+    border-top-color: transparent;
+    border-bottom-color: rgb(139, 25, 19);
+}
+
+.scMessageBar .scDetails {
+    word-break: break-word;
+    display: none;
+}
+
+.scMessageBar .scMessageBarTextContainer.scExpanded .scDetails {
+    display: block;
+}
+
+.scLoginFailedMessagesContainer {
+    /*margin-bottom: 30px;*/
+}

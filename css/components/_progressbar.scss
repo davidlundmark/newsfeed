@@ -1,0 +1,32 @@
+.course-progress {
+    margin-top: $gap-md;
+    .finished {
+        letter-spacing: 1px;
+        @extend .small;
+        margin-bottom: $gap-xs;
+    }
+    .progress-bar-indication {
+        background-color: $progress-background;
+        border: $progress-border;
+        //box-shadow: inset 0 0 3px 0 rgba(darken($progress-background, 50%), 0.15);
+        margin: 0 auto;
+        width: 100%;
+        > div.meter {
+            background-color: $progress-meter-color;
+            background-repeat: repeat-x;
+            background-size: $gap-double $gap-double;
+            border: $progress-meter-border;
+            border-bottom-right-radius: 0;
+        }
+        .percent {
+            line-height: 1;
+            margin: 0;
+            padding: $gap-xs $gap-half;
+            @extend .small;
+            letter-spacing: 1px;
+            &.active {
+                color: $progress-color;
+            }
+        }
+    }
+}

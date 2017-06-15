@@ -1,0 +1,378 @@
+@import "variables";
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin headings {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @content;
+    }
+}
+
+@mixin alignItems() {
+    display: flex;
+    align-items: center;
+}
+
+@mixin createTriangle ($dir:'up', $width:10px, $height:10px, $color: $base-font-color) {
+    width: 0;
+    height: 0;
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    @if $dir=='up' {
+        border-bottom: $height solid $color;
+    }
+    @else if $dir=='down' {
+        border-top: $height solid $color;
+    }
+}
+
+@mixin transition($transition-property: all, $transition-duration: $base-transition-duration, $transition-timing: $base-transition-timing, $acceleration: false) {
+    transition: $transition-property $transition-duration $transition-timing;
+    @if $acceleration==true {
+        @include forceHarwareAcceleration();
+    }
+}
+
+@mixin centeredContainer($max-width: $page-section-max-width, $padding: $gap, $position: relative) {
+    position: $position;
+    width: auto;
+    padding: $padding;
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+@mixin forceHarwareAcceleration() {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+@mixin resetList() {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin horizontalList($margin:$gap) {
+    > li {
+        white-space: nowrap;
+        display: inline-block;
+        margin: $margin $margin/2;
+        position: relative;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+@mixin customTransitionTiming($custom-transition-timing) {
+    @include transition($transition-timing: $custom-transition-timing);
+}
+
+@mixin acceleratedTransition($transition-property: all, $transition-duration: $base-transition-duration, $transition-timing: $base-transition-timing, $acceleration: false) {
+    @include transition($transition-property, $transition-duration, $transition-timing, true);
+}
+
+@mixin setFont($font-name: $base-font-name) {
+    @if $font-name==$base-font-name {
+        @include setTextFormat($base-font-family, $base-font-size, $base-font-weight, $base-line-height);
+        text-decoration: none;
+    }
+    @else if $font-name==$heading-font-name {
+        @include setTextFormat($heading-font-family, $heading-font-size, $heading-font-weight, $heading-line-height);
+        letter-spacing: $heading-letter-spacing;
+    }
+    //@else if $font-name==$h1-font-name {
+    //    @include setTextFormat($h1-font-family, $h1-font-size, $h1-font-weight, $h1-line-height, $h1-text-transform);
+    //}
+    //@else if $font-name==$h2-font-name {
+    //    @include setTextFormat($h2-font-family, $h2-font-size, $h2-font-weight, $h2-line-height, $h2-text-transform);
+    //}
+    //@else if $font-name==$link-font-name {
+    //    @include setTextFormat($link-font-family, $link-font-size, $link-font-weight, $base-line-height, $link-text-transform, $link-text-decoration);
+    //}
+    @else if $font-name==$button-font-name {
+        @include setTextFormat($button-font-family, $button-font-size, $button-font-weight, $button-line-height, $button-text-transform);
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+    @else if $font-name==$large-font-name {
+        @include setFont($base-font-name);
+        @include setFontSize($large-font-size);
+    }
+    @else if $font-name==$small-font-name {
+        @include setTextFormat($base-font-name);
+        @include setFontSize($small-font-size);
+    }
+}
+
+@mixin setFontSize($font-size) {
+    font-size: $font-size;
+}
+
+@mixin setTextFormat($font-family: null, $font-size: null, $font-weight: null, $line-height: null, $text-transform: none, $text-decoration: null, $font-style: null) {
+    @if $font-size !=null {
+        font-size: $font-size;
+    }
+    @if $font-family !=null {
+        font-family: $font-family;
+    }
+    @if $font-weight !=null {
+        font-weight: $font-weight;
+    }
+    @if $line-height !=null {
+        line-height: $line-height;
+    }
+    @if $text-transform !=none {
+        text-transform: $text-transform;
+    }
+    @if $font-style !=null {
+        font-style: $font-style;
+    }
+    @if $text-transform !=null {
+        text-decoration: $text-decoration;
+    }
+}
+
+@mixin hoverLink($color: $base-font-color, $hover-color: $base-brand-color) {
+    @if color !=null {
+        color: $color;
+    }
+    text-decoration: none;
+    .no-touch & {
+        @include transition();
+        &:hover,
+        &.hover &.selected {
+            color: $hover-color;
+        }
+    }
+}
+
+@mixin underlineLink() {
+    text-decoration: none;
+    .no-touch & {
+        &:hover,
+        &.hover &.selected {
+            text-decoration: underline;
+        }
+    }
+}
+
+@mixin lineBefore($color: $base-border-color) {
+    &:before {
+        content: '';
+        position: absolute;
+        width: calc(100% - #{$page-section-padding*2});
+        height: $base-border-thickness;
+        top: 0;
+        left: $page-section-padding;
+        background-color: $color;
+    }
+}
+
+@mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: -1px, $time: $base-transition-duration, $thickness: 1px, $scale:1, $top: false) {
+    position: relative;
+    text-decoration: none;
+    @if $distance !=0 {
+        overflow: visible;
+    }
+    @if color !=null {
+        color: $color;
+    }
+    &:before {}
+    .no-touch & {
+        &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: $thickness;
+            @if $top ==true {
+                top: $distance;
+            }
+            @else {
+                bottom: -$distance;
+            }
+            left: 0;
+            background-color: $line-color;
+            visibility: hidden;
+            //@include scaleX(0);
+            transform: scaleX(0) translate3d(0, 0, 0);
+            @include transition(all, $time, $easeOutCirc);
+        }
+        &:hover {
+            @if $hover-color !=null {
+                color: $hover-color;
+            }
+        }
+        &.selected:before,
+        &:hover:before,
+        &.hover:before {
+            //will-change: auto;
+            visibility: visible;
+            //@include scaleX($scale);
+            transform: scaleX(1) translate3d(0, 0, 0);
+        }
+    }
+}
+
+@mixin fixedOverlay($top:0, $right:0, $bottom:0, $left:0, $background-color: $base-background-color, $z-index: 9999, $overflow: hidden) {
+    position: fixed;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    background-color: $background-color;
+    z-index: $z-index;
+    @if $overflow !=null {
+        overflow: $overflow;
+    }
+}
+
+@mixin border($color:$base-border-color, $dir:null, $thickness:$base-border-thickness, $style:$base-border-style) {
+    @if $dir==null {
+        border: $thickness $style $color;
+    }
+    @else if $dir==top {
+        border-top: $thickness $style $color;
+    }
+    @else if $dir==right {
+        border-right: $thickness $style $color;
+    }
+    @else if $dir==bottom {
+        border-bottom: $thickness $style $color;
+    }
+    @else if $dir==left {
+        border-left: $thickness $style $color;
+    }
+}
+
+@mixin createCircle($background-color: $base-brand-color, $diameter: $gap-double, $color: $base-font-color, $background-hover-color: null, $border: null) {
+    //padding: $padding;
+    width: $diameter;
+    height: $diameter;
+    border-radius: $diameter;
+    //float: left;
+    text-align: center;
+    position: relative;
+    @if $background-color !=null {
+        background-color: $background-color;
+    }
+    @if $color !=null {
+        color: $color;
+    }
+    @if $border !=null {
+        border: $border;
+    }
+    //font-size: @text-size;border: @border;
+    @if $background-hover-color !=null {
+        border: $border;
+        .no-touch & {
+            &:hover {
+                @include transition();
+            }
+        }
+    }
+    > .icon {
+        @include centerElement();
+    }
+}
+
+@mixin centerElement() {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include translate(-50%, -50%);
+}
+
+@mixin centerFlex() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin centerVertical() {
+    position: absolute;
+    top: 50%;
+    @include translate(0, -50%);
+}
+
+@mixin centerHorizontal($centerContent:false) {
+    position: absolute;
+    left: 50%;
+    @if $centerContent==true {
+        @include translate(-50%, -50%);
+    }
+    @else {
+        @include translate(-50%, 0);
+    }
+}
+
+@mixin coverAll() {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@mixin sharpen() {
+    backface-visibility: hidden;
+}
+
+@mixin translate($x, $y) {
+    transform: translate($x, $y);
+    //@include sharpen();
+}
+
+@mixin translate3d($x, $y, $z) {
+    transform: translate3d($x, $y, $z);
+    //@include sharpen();
+}
+
+@mixin translateY($y) {
+    transform: translateY($y);
+}
+
+@mixin translateX($x) {
+    transform: translateX($x);
+}
+
+@mixin translateZ($z) {
+    transform: translateZ($z);
+}
+
+@mixin breakpoint($breakpoint, $max-width:true) {
+    @if $max-width==true {
+        @media screen and (max-width: $breakpoint) {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-width: $breakpoint) {
+            @content;
+        }
+    }
+}
+
+@mixin scaleX ($factor) {
+    transform: scaleX($factor);
+}
+
+@mixin scale ($factor) {
+    transform: scale($factor);
+}
+
+@mixin oneLine() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

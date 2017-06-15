@@ -1,0 +1,141 @@
+@keyframes vex-fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes vex-fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes vex-flyin {
+    0% {
+        opacity: 0;
+        //margin-top: -$gap-double; //removing margin animation from css because margin is set in js
+        //@include translateY(-$gap-double);
+    }
+    100% {
+        opacity: 1;
+        //margin-top: 0;
+        //@include translateY(0);
+    }
+}
+
+@keyframes vex-flyout {
+    0% {
+        opacity: 1;
+        //margin-top: 0;
+        //@include translateY(0);
+    }
+    100% {
+        opacity: 0;
+        //margin-top: -$gap-double;
+        //@include translateY(-$gap-double);
+    }
+}
+
+.vex {
+    -webkit-overflow-scrolling: touch;
+    @include fixedOverlay($background-color: null);
+    //display: table;
+    //height: 100%;
+    //width: 100%;
+}
+
+.vex-overlay {
+    @include fixedOverlay($background-color: $vex-overlay-background-color, $z-index: null);
+    animation: vex-fadein 0.5s;
+    .vex-closing & {
+        animation: vex-fadeout 0.5s;
+    }
+}
+
+.vex-content {
+    //display: table-cell;
+    //vertical-align: middle;
+    //padding: $gap;
+    //@include centerElement3d();
+    position: absolute;
+    padding: $gap-double;
+    background-color: $vex-content-background-color;
+    animation: vex-flyin 0.5s;
+    .vex & {
+        width: 100%;
+        left: 50%;
+        top: 50%;
+        max-width: $vex-content-max-width;
+    }
+    .vex-closing & {
+        animation: vex-flyout 0.5s;
+    } 
+}
+
+.vex-close {
+    position: absolute;
+    line-height: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $gap;
+    cursor: pointer;
+}
+
+.vex-dialog-form {
+    .vex-dialog-buttons {
+        margin-top: $gap;
+        .vex-button {
+            float: right;
+            @extend .button-brand-color;
+        }
+        .vex-link {
+            float: left;
+            margin: 0;
+            @extend .bold;
+            line-height: 1;
+            margin-top: 8px;
+            @include hoverLink($base-font-color);
+            cursor: pointer;
+        }
+        /*
+        > button {
+            margin-left: $gap;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+        */
+    }
+    .vex-dialog-message {
+        .title {
+            @extend .bold;
+            margin: 0;
+        }
+        .body {
+            margin-top: $gap-half;
+            &:empty {
+                display: none;
+            }
+        }
+    }
+}
+
+// .modal-compare {
+//     ul.default-list {
+//         padding-top: $gap;
+//     }
+// }
+// Prevent background scrolling when vex is open
+// https://github.com/HubSpot/vex/issues/18
+body.vex-open {
+    @include breakpoint($breakpoint-lg) {
+        overflow: hidden;
+    }
+}
