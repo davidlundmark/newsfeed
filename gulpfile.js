@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var watch = require('gulp-watch');
 
 var source = './';
-var project_destination = '../';
+var project_destination = './';
 
 var debug = true;
 
