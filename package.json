@@ -1,7 +1,7 @@
 {
-  "name": "clonetest2",
+  "name": "dekaiv2",
   "version": "1.0.0",
-  "description": "norra",
+  "description": "dekaiv2",
   "main": "app.js",
   "dependencies": {
     "autoprefixer": "^6.5.1",
@@ -32,13 +32,13 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidlundmark/clonetest2.git"
+    "url": "git+https://github.com/davidlundmark/dekaiv2.git"
   },
   "keywords": [
-    "norra"
+    "dekaiv2"
   ],
   "bugs": {
-    "url": "https://github.com/davidlundmark/clonetest2/issues"
+    "url": "https://github.com/davidlundmark/dekaiv2/issues"
   },
-  "homepage": "https://github.com/davidlundmark/clonetest2#readme"
+  "homepage": "https://github.com/davidlundmark/dekaiv2#readme"
 }
