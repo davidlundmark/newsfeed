@@ -1,2 +1,2 @@
-# deKai v.2
-http://davidlundmark.se/dekaiv2/
+# newsfeed
+http://davidlundmark.se/newsfeed/

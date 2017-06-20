@@ -1,7 +1,7 @@
 {
-  "name": "dekaiv2",
+  "name": "newsfeed",
   "version": "1.0.0",
-  "description": "dekaiv2",
+  "description": "newsfeed",
   "main": "app.js",
   "dependencies": {
     "autoprefixer": "^6.5.1",
@@ -32,13 +32,13 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidlundmark/dekaiv2.git"
+    "url": "git+https://github.com/davidlundmark/newsfeed.git"
   },
   "keywords": [
-    "dekaiv2"
+    "newsfeed"
   ],
   "bugs": {
-    "url": "https://github.com/davidlundmark/dekaiv2/issues"
+    "url": "https://github.com/davidlundmark/newsfeed/issues"
   },
-  "homepage": "https://github.com/davidlundmark/dekaiv2#readme"
+  "homepage": "https://github.com/davidlundmark/newsfeed#readme"
 }
