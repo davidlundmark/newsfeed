@@ -81,6 +81,10 @@
             &:first-child {
                 border-top: none;
             }
+
+            .news-description {
+                padding-top: $gap-half;
+            }
         }
         // .button {
         //     margin-top: $gap;

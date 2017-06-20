@@ -6,16 +6,16 @@
     require('./lib/picturefill.js');
     //require('./lib/slick.js');
     //require('./lib/jquery.flexslider.js');
-    require('./lib/jquery.swipebox.js');
+    //require('./lib/jquery.swipebox.js');
     //globals
     require('./custom/screensizeHandler.js');
     //customs
     require('./custom/menuscrollHandler.js');
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
-    //require('./custom/accordionHandler.js');
+    require('./custom/accordionHandler.js');
     //require('./custom/accordiontabsHandler.js');
-    require('./custom/swipeboxHandler.js');
+    //require('./custom/swipeboxHandler.js');
     require('./custom/backgroundimageHandler.js');
     require('./custom/apiHandler.js');
     require('./custom/carouselHandler.js');

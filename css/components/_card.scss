@@ -453,6 +453,8 @@
     }
     &-related-item {
         .card-text {
+            height: 100%;
+            text-align: center;
             padding: $gap-md $gap;
             color: $light-font-color;
             background-color: rgba($black, $card-overlay-opacity) !important;
@@ -460,6 +462,9 @@
                 &:not(.keep-style) {
                     background-color: $quaternary-background-color !important;
                 }
+            }
+            > .news-title {
+                @include centerElement();
             }
         }
         .card-image {

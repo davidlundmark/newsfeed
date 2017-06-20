@@ -1,14 +1,17 @@
 //#region AccordionHandlerZ
-var AccordionHandler = {
+AccordionHandler = {
     init: function() {
-        var _accordion = document.querySelectorAll('.accordion');
-        var _triggers = $(_accordion).find('.accordion-trigger > .icon-container');
+        var _triggers = document.querySelectorAll('.accordion-trigger');
         if (_triggers === null) return;
 
+        var _content = document.querySelectorAll('.accordion-content');
+        $(_content).hide();
+
+        $(_triggers).off('click');
         $(_triggers).on('click', function(e) {
-            var $this = $(this).parent();
-            var $parent = $this.parent();
-            var $submenu = $parent.find('> .submenu');
+            var $this = $(this);
+            var $parent = $(this).parent();
+            var $submenu = $parent.find('> .accordion-content');
             $this.trigger('resize-start');
             $parent.toggleClass('is-expanded');
 
@@ -16,7 +19,6 @@ var AccordionHandler = {
                 if (!$parent.hasClass('is-expanded')) {
                     var $submenus = $submenu.find('.is-expanded');
                     $submenus.removeClass('is-expanded');
-                    $submenus.find('> .submenu').slideUp(0);
                 }
 
                 $this.trigger('resize-end');
@@ -30,8 +32,8 @@ var AccordionHandler = {
 };
 //#endregion
 
-(function () {
+(function() {
     if (typeof useAccordion !== 'undefined' && useAccordion) {
-        AccordionHandler.init();
+         AccordionHandler.init();
     }
 })();

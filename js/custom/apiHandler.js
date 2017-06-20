@@ -3,9 +3,13 @@ ApiHandler = {
     id: '',
     proxyUrl: '/newsfeed/proxy.php',
     $newsSection: null,
+    $newsSliderSection: null,
     $newsList: null,
     $newsItem: null,
+    $newsSlider: null,
+    $newsSliderItem: null,
     items: [],
+    sliderItems: [],
     $searchButton: null,
     $noResult: null,
     $input: null,
@@ -20,24 +24,35 @@ ApiHandler = {
         var _newsSection = document.querySelector('.' + Id + '-result-section');
         var _errorMsg = document.querySelector('.' + Id + '-error-msg');
 
-        if (_newsList === null || _newsItem === null || _newsSection == null || _errorMsg === null) {
+        var _newsSliderSection = document.querySelector('.' + Id + '-slider-result-section');
+        var _newsSlider = document.getElementById(Id + '-slider-template');
+        var _newsSliderItem = document.getElementById(Id + '-slider-item-template');
+
+        if (_newsSlider === null || _newsSliderItem === null || _newsList === null || _newsItem === null || _newsSection == null || _errorMsg === null) {
             console.log('Associated DOM elements not found!');
             return;
         }
 
         this.$newsList = $(_newsList);
         this.$newsItem = $(_newsItem);
+        this.$newsSlider = $(_newsSlider);
+        this.$newsSliderItem = $(_newsSliderItem);
+        this.$newsSliderSection = $(_newsSliderSection);
         this.$newsSection = $(_newsSection);
         this.$errorMsg = $(_errorMsg);
 
         //remove ID's 
         this.$newsList.removeAttr('id');
         this.$newsItem.removeAttr('id');
+        this.$newsSlider.removeAttr('id');
+        this.$newsSliderItem.removeAttr('id');
 
         this.$newsSection.addClass('hide');
+        this.$newsSliderSection.addClass('hide');
 
         //remove from DOM
         this.$newsItem.remove();
+        this.$newsSliderItem.remove();
 
         //load more button
         var _searchButton = document.getElementById('search-button');
@@ -49,7 +64,11 @@ ApiHandler = {
                 //if already loading, stop
                 if (this.$searchButton.hasClass('loading')) return false;
 
+                this.$searchButton.disable(true);
+
                 this.$newsSection.addClass('hide');
+                this.$newsSliderSection.addClass('hide');
+
                 var _feed = this.$input.val();
                 if (!_feed) {
                     this.$errorMsg.find('.scMessageBarText').text('The feed is empty!');
@@ -120,15 +139,30 @@ ApiHandler = {
             var _clone = ApiHandler.$newsItem.clone()[0];
 
             //Title
-            _clone.querySelector('.title > .text-link').innerHTML = _title;
+            _clone.querySelector('.news-title').innerHTML = _title;
+            //Description
+            // _clone.querySelector('.news-description').innerHTML = _description;
+            $(_clone).find('.news-description').text(_description);
             //Link
-            _clone.querySelector('.text-link').setAttribute('href', _link);
+            //_clone.querySelector('.news-link').setAttribute('href', _link);  
+            $(_clone).find('.news-link').attr('href', _link);
 
             ApiHandler.items.push(_clone);
             ApiHandler.$newsList.append($(_clone));
+
+            var _cloneSlider = ApiHandler.$newsSliderItem.clone()[0];
+
+            //Title
+            _cloneSlider.querySelector('.news-title').innerHTML = _title;
+            //Link
+            $(_cloneSlider).find('.news-link').attr('href', _link);
+
+            ApiHandler.sliderItems.push(_cloneSlider);
+            ApiHandler.$newsSlider.append($(_cloneSlider));
         });
 
         ApiHandler.$newsSection.removeClass('hide');
+        ApiHandler.$newsSliderSection.removeClass('hide');
 
         if (ApiHandler.$searchButton) {
             ApiHandler.$searchButton.height('');
@@ -136,15 +170,17 @@ ApiHandler = {
             ApiHandler.$searchButton.removeClass('loading');
         }
 
-        if (ApiHandler.$newsList.hasClass('loading')) ApiHandler.$newsList.removeClass('loading');
+        // if (ApiHandler.$newsList.hasClass('loading')) ApiHandler.$newsList.removeClass('loading');
 
-        if (ApiHandler.items.length) {
-            if (!ApiHandler.$newsList.hasClass('show')) ApiHandler.$newsList.addClass('show');
-            if (ApiHandler.$noResult.hasClass('show')) ApiHandler.$noResult.removeClass('show');
-        } else {
-            if (ApiHandler.$newsList.hasClass('show')) ApiHandler.$newsList.removeClass('show');
-            if (!ApiHandler.$noResult.hasClass('show')) ApiHandler.$noResult.addClass('show');
-        }
+        // if (ApiHandler.items.length) {
+        //     if (!ApiHandler.$newsList.hasClass('show')) ApiHandler.$newsList.addClass('show');
+        //     if (ApiHandler.$noResult.hasClass('show')) ApiHandler.$noResult.removeClass('show');
+        // } else {
+        //     if (ApiHandler.$newsList.hasClass('show')) ApiHandler.$newsList.removeClass('show');
+        //     if (!ApiHandler.$noResult.hasClass('show')) ApiHandler.$noResult.addClass('show');
+        // }
+
+        AccordionHandler.init();
     },
     getNews: function(handleData) {
         var feed = this.proxyUrl + '?feed=' + this.feed;

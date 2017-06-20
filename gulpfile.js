@@ -4,7 +4,7 @@ var watch = require('gulp-watch');
 var source = './';
 var project_destination = './';
 
-var debug = true;
+var debug = false;
 
 gulp.task('default', ['watch:sync-project', 'webpack:watch' ]);
 
