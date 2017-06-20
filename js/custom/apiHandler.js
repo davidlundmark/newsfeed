@@ -87,10 +87,7 @@ ApiHandler = {
                 this.$searchButton.width(this.$searchButton.width());
                 this.$searchButton.addClass('loading');
 
-                //***********IMPORTANT!*********** remove timeout later, only for visual
-                //setTimeout(function() {
                 this.getNews(this.createNewsItems);
-                //}.bind(this), 600);
                 return false;
             }.bind(this));
         }
@@ -152,7 +149,7 @@ ApiHandler = {
             ApiHandler.items.push(_clone);
             ApiHandler.$newsList.append($(_clone));
 
-            if (i < 10) {
+            if (i < 9) {
                 var _cloneSlider = ApiHandler.$newsSliderItem.clone()[0];
 
                 //Title
@@ -208,7 +205,6 @@ ApiHandler = {
 (function() {
 
     if (typeof useApi !== 'undefined' && useApi) {
-        //require('../lib/jquery.xdomainajax.js');
         ApiHandler.init('search');
     }
 })();
