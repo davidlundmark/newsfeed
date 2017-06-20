@@ -94,6 +94,10 @@
             .icon {
                 margin-left: $gap-half;
             }
+            &.disabled {
+                opacity: 0.3;
+                pointer-events: none;
+            }
         }
     }
     &-slider-result-section {

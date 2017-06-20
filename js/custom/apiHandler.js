@@ -64,8 +64,6 @@ ApiHandler = {
                 //if already loading, stop
                 if (this.$searchButton.hasClass('loading')) return false;
 
-                //this.$searchButton.disable(true);
-
                 this.$newsSection.addClass('hide');
                 this.$newsSliderSection.addClass('hide');
 
@@ -174,6 +172,7 @@ ApiHandler = {
             ApiHandler.$searchButton.height('');
             ApiHandler.$searchButton.width('');
             ApiHandler.$searchButton.removeClass('loading');
+            ApiHandler.$searchButton.addClass('disabled');
         }
 
         // if (ApiHandler.$newsList.hasClass('loading')) ApiHandler.$newsList.removeClass('loading');

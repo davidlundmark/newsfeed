@@ -81,13 +81,8 @@
                 <nav id="default-menu" class="menu-container default-menu">
                     <ol class="menu">
                         <li class="menu-item">
-                            <a class="text" href="#" target="">
-                                <span class="text">Newsfeed in list</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class="text" href="#" target="">
-                                <span class="text">Newsfeed in slider</span>
+                            <a class="text" href="#content-wrapper" target="">
+                                <span class="text">Newsfeed</span>
                             </a>
                         </li>
                     </ol>
@@ -102,10 +97,7 @@
             <div class="content">
                 <ul class="accordion">
                     <li class="menu-item">
-                        <a href="#" target="" class="label">Newsfeed in list</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" target="" class="label">Newsfeed in slider</a>
+                        <a href="#content-wrapper" target="" class="label">Newsfeed</a>
                     </li>
                 </ul>
             </div>
@@ -120,8 +112,8 @@
                     <ul class="slides">
                         <li>
                             <picture>
-                                <source srcset="http://placehold.it/320x240" media="screen and (max-height: 320px)">
-                                <source srcset="http://placehold.it/768x576" media="screen and (max-height: 768px)">
+                                <source srcset="src/assets/images/800.jpg" media="screen and (max-height: 320px)">
+                                <source srcset="src/assets/images/1024.jpg" media="screen and (max-height: 768px)">
                                 <img src="src/assets/images/1920.jpg" class="">
                             </picture>
                             <span class="flexslider-image"></span>
@@ -143,7 +135,7 @@
                 </script>
             </div>
         </section>
-        <div class="content-wrapper">
+        <div id="content-wrapper" class="content-wrapper">
             <section class="page-section search-header-section">
                 <div class="section-container narrow-width">
                     <h2 class="section-title h5">Feed url:</h5>
