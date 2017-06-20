@@ -147,8 +147,8 @@ ApiHandler = {
             //_clone.querySelector('.news-link').setAttribute('href', _link);  
             $(_clone).find('.news-link').attr('href', _link);
 
-            if (i > 4) {
-                $(_clone).addClass('hide');
+            if (i < 5) {
+                $(_clone).removeClass('hide');
             }
 
             ApiHandler.items.push(_clone);
