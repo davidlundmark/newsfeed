@@ -1,5 +1,5 @@
 require('./js/script.js');
-require('./css/styles.scss');
+require('./css/styles.scss'); 
 
 
 

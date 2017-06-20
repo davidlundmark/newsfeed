@@ -1,6 +1,6 @@
 var debug = process.env.NODE_ENV != 'production';
 
-//console.log(process.env.NODE_ENV,debug, process.env.NODE_ENV == 'production');
+//console.log(process.env.NODE_ENV,debug, process.env.NODE_ENV == 'production'); 
 
 var webpack = require('webpack');
 var extracttextplugin = require('extract-text-webpack-plugin');
