@@ -1,7 +1,7 @@
 //#region ApiHandler
 ApiHandler = {
     id: '',
-    proxyUrl: '/test/proxy.php',
+    proxyUrl: '/newsfeed/proxy.php',
     $newsSection: null,
     $newsList: null,
     $newsItem: null,
@@ -32,7 +32,7 @@ ApiHandler = {
 
         //remove ID's 
         this.$newsList.removeAttr('id');
-        this.$newsItem.removeAttr('id'); 
+        this.$newsItem.removeAttr('id');
 
         this.$newsSection.addClass('hide');
 
@@ -56,8 +56,7 @@ ApiHandler = {
                     this.$errorMsg.removeClass('hide');
                     return false;
                 }
-                if(!this.validateUrl(_feed))
-                {
+                if (!this.validateUrl(_feed)) {
                     this.$errorMsg.find('.scMessageBarText').text('The feed is not valid!');
                     this.$errorMsg.removeClass('hide');
                     return false;
@@ -111,16 +110,19 @@ ApiHandler = {
             ApiHandler.$searchButton.addClass('hide');
         }
 
-        //loop thru result and create new <li> DOM elements
         var _language = Language.toLowerCase();
         $.each(data, function(i, item) {
-            //console.log(item);
+            var $item = $(item);
+            var _title = $item.find('title').text();
+            var _link = $item.find('link').text();
+            var _description = $item.find('description').text();
+
             var _clone = ApiHandler.$newsItem.clone()[0];
 
             //Title
-            _clone.querySelector('.title > .text-link').innerHTML = item.title;
+            _clone.querySelector('.title > .text-link').innerHTML = _title;
             //Link
-            _clone.querySelector('.text-link').setAttribute('href', item.url);
+            _clone.querySelector('.text-link').setAttribute('href', _link);
 
             ApiHandler.items.push(_clone);
             ApiHandler.$newsList.append($(_clone));
@@ -145,19 +147,15 @@ ApiHandler = {
         }
     },
     getNews: function(handleData) {
-        $.getJSON({
-            type: 'GET',
-            dataType: 'json',
-            url: this.proxyUrl,
-            data: {
-                feed: this.feed
+        var feed = this.proxyUrl + '?feed=' + this.feed;
+
+        $.ajax(feed, {
+            accepts: {
+                xml: 'application/rss+xml'
             },
+            dataType: 'xml',
             success: function(data) {
-                console.log(data);
-                handleData(data.items);
-            },
-            error: function(e) {
-                console.log(e.message);
+                handleData($(data).find('item'));
             }
         });
     }

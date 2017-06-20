@@ -145,7 +145,41 @@
             </div>
         </section>
         <div class="content-wrapper">
-            
+            <section class="page-section search-header-section">
+                <div class="section-container narrow-width">
+                    <h5 class="section-title">Feed url:</h5>
+                    <div class="search-form search-standard">
+                        <div class="row small-gap">
+                            <div class="column col-9 col-ph-12">
+                                <input id="search-input" type="text" name="query" placeholder="feed url" class="search-input" autocomplete="off" value="http://www.dn.se/nyheter/m/rss/">
+                            </div>
+                            <div class="column col-3 col-ph-12">
+                                <a id="search-button" href="#" target="_self" class="button load-more"><span class="text">Feed me!</span><span class="loader"></span></a>
+                            </div>
+                        </div>
+                        <div id="" class="search-error-msg scMessageBar scError hide" style=""><i class="scMessageBarIcon"></i>
+                            <div class="scMessageBarTextContainer">
+                                <div class="scMessageBarText"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                    var useApi = true;
+                    </script>
+            </section>
+            <section class="page-section search-result-section">
+                <div class="section-container narrow-width">
+                    <h2 class="section-title h5">Result:</h1>
+                <div id="search-list-template">
+                    <div id="search-item-template" class="search-item">
+                        <h3 class="h6 title">
+                            <a class="text-link" href=""></a>
+                        </h3>
+                    </div>
+                </div>
+                <p class="no-result">Inga träffar</p>
+            </div>
+        </section>
         </div>
         <footer class="page-section page-footer">
             <div class="section-container footer-top">
