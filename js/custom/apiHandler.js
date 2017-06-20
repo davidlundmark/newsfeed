@@ -64,7 +64,7 @@ ApiHandler = {
                 //if already loading, stop
                 if (this.$searchButton.hasClass('loading')) return false;
 
-                this.$searchButton.disable(true);
+                //this.$searchButton.disable(true);
 
                 this.$newsSection.addClass('hide');
                 this.$newsSliderSection.addClass('hide');
@@ -147,18 +147,24 @@ ApiHandler = {
             //_clone.querySelector('.news-link').setAttribute('href', _link);  
             $(_clone).find('.news-link').attr('href', _link);
 
+            if (i > 4) {
+                $(_clone).addClass('hide');
+            }
+
             ApiHandler.items.push(_clone);
             ApiHandler.$newsList.append($(_clone));
 
-            var _cloneSlider = ApiHandler.$newsSliderItem.clone()[0];
+            if (i < 10) {
+                var _cloneSlider = ApiHandler.$newsSliderItem.clone()[0];
 
-            //Title
-            _cloneSlider.querySelector('.news-title').innerHTML = _title;
-            //Link
-            $(_cloneSlider).find('.news-link').attr('href', _link);
+                //Title
+                _cloneSlider.querySelector('.news-title').innerHTML = _title;
+                //Link
+                $(_cloneSlider).find('.news-link').attr('href', _link);
 
-            ApiHandler.sliderItems.push(_cloneSlider);
-            ApiHandler.$newsSlider.append($(_cloneSlider));
+                ApiHandler.sliderItems.push(_cloneSlider);
+                ApiHandler.$newsSlider.append($(_cloneSlider));
+            }
         });
 
         ApiHandler.$newsSection.removeClass('hide');
@@ -181,6 +187,7 @@ ApiHandler = {
         // }
 
         AccordionHandler.init();
+        CarouselHandler.init();
     },
     getNews: function(handleData) {
         var feed = this.proxyUrl + '?feed=' + this.feed;

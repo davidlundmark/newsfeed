@@ -115,6 +115,19 @@
             }
         }
 
+        if (typeof useSearchLoadMore !== 'undefined' && useSearchLoadMore) {
+            var _loadmore = document.querySelectorAll('.search-result-section .load-more');
+            if (_loadmore !== null) {
+                $(_loadmore).on('click', function(e) {
+                    var $this = $(this);
+                    var $parent = $this.parent();
+                    $parent.find('.search-item.hide').slice(0, 3).removeClass('hide');
+                    if (!$parent.find('.search-item.hide').length) $this.hide();
+                    return false;
+                });
+            }
+        }
+
         deKai.lazyLoad();
 
 

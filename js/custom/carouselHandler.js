@@ -1,5 +1,7 @@
+require('../lib/slick.js');
+
 //#region CarouselHandler
-var CarouselHandler = {
+CarouselHandler = {
     init: function() {
         var $carousel;
         var $this = this;
@@ -66,8 +68,7 @@ var CarouselHandler = {
 
 (function () {
     //Slick carousel
-    if (typeof useCarousel !== 'undefined' && useCarousel) {
-        require('../lib/slick.js');
-        CarouselHandler.init();
-    }
+    // if (typeof useCarousel !== 'undefined' && useCarousel) {
+    //     CarouselHandler.init();
+    // }
 })();
