@@ -2,7 +2,7 @@ require('../lib/fastclick.js');
 
 //#region Dekai
 deKai = {
-    lazyLoad: null,
+    lazyLoadDefault: null,
     lazyLoadPicture: null,
     isMobile: false,
     //check if IE
@@ -79,7 +79,7 @@ deKai = {
             //const LazyLoad = require('LazyLoad');
 
             if (_lazy !== null) {
-                this.lazyLoad = new LazyLoad({
+                this.lazyLoadDefault = new LazyLoad({
                     elements_selector: '.lazy'
                 });
             }
@@ -96,7 +96,7 @@ deKai = {
     },
 
     updateLazy: function() {
-        if (this.lazyLoad) this.lazyLoad.update();
+        if (this.lazyLoadDefault) this.lazyLoadDefault.update();
         if (this.lazyLoadPicture) this.lazyLoadPicture.update();
     },
 

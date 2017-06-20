@@ -9,7 +9,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0, user-scalable=no">
-    <title>Newsfeed - David Lundmark</title>
+    <title>Newsfeed - Dagens Nyheter</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="src/assets/images/favicon/favicon-32x32.png" sizes="32x32">
@@ -30,19 +30,160 @@
     var Language = "sv-SE";
     </script>
     <style>
-    .state-indicator{position:absolute;top:-999em;left:-999em;z-index:1}@media screen and (max-width:1400px){.state-indicator{z-index:2}}@media screen and (max-width:1024px){.state-indicator{z-index:3}}@media screen and (max-width:768px){.state-indicator{z-index:4}}@media screen and (max-width:767px){.state-indicator{z-index:5}}@media screen and (max-width:480px){.state-indicator{z-index:6}}
+    .state-indicator {
+        position: absolute;
+        top: -999em;
+        left: -999em;
+        z-index: 1
+    }
+    
+    @media screen and (max-width:1400px) {
+        .state-indicator {
+            z-index: 2
+        }
+    }
+    
+    @media screen and (max-width:1024px) {
+        .state-indicator {
+            z-index: 3
+        }
+    }
+    
+    @media screen and (max-width:768px) {
+        .state-indicator {
+            z-index: 4
+        }
+    }
+    
+    @media screen and (max-width:767px) {
+        .state-indicator {
+            z-index: 5
+        }
+    }
+    
+    @media screen and (max-width:480px) {
+        .state-indicator {
+            z-index: 6
+        }
+    }
     </style>
 </head>
 
-<body id="norra" class="template-home rootweb">
+<body id="newsfeed" class="template-home rootweb">
     <div id="page-wrapper" class="visibility-hidden">
-    </div>
-        <noscript>
-            <div>
-                <h5>Javascript is not enabled. Please enable javascript in your browser settings and try again.</h5>
+        <header class="page-section page-header ">
+            <div class="section-container full-width rootweb-menu">
+                <div class="logo-container">
+                    <a href="/">
+                        <img class="logo" src="src/assets/images/dekai_logo.svg" />
+                    </a>
+                </div>
+                <nav id="default-menu" class="menu-container default-menu">
+                    <ol class="menu">
+                        <li class="menu-item">
+                            <a class="text" href="#" target="">
+                                <span class="text">Newsfeed in list</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="text" href="#" target="">
+                                <span class="text">Newsfeed in slider</span>
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+                <div class="menu-toggle burger-container" data-target="#mobile-menu">
+                    <div class="burger"></div>
+                </div>
             </div>
-        </noscript>
-        <script src="src/scripts.min.js"></script>
+        </header>
+        <nav id="mobile-menu" class="side-nav ">
+            <div class="blocker"></div>
+            <div class="content">
+                <ul class="accordion">
+                    <li class="menu-item">
+                        <a href="#" target="" class="label">Newsfeed in list</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" target="" class="label">Newsfeed in slider</a>
+                    </li>
+                </ul>
+            </div>
+            <script>
+            var useAccordion = true;
+            var useMenuToggle = true;
+            var useMenuScrollEffect = true;
+            </script>
+        </nav>
+        <section class="page-section page-slider fixed-top">
+            <div class="section-container full-width">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li>
+                            <picture>
+                                <source srcset="http://placehold.it/320x240" media="screen and (max-height: 320px)">
+                                <source srcset="http://placehold.it/768x576" media="screen and (max-height: 768px)">
+                                <img src="src/assets/images/1920.jpg" class="">
+                            </picture>
+                            <span class="flexslider-image"></span>
+                            <div class="flexslider-figcaption">
+                                <div class="content">
+                                    <div class="text-content">
+                                        <h2 class="title"><span class="brand-color">N</span>ewsfeed - Dagens Nyheter<br /> <span class="brand-color">D</span>avid Lundmark</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="arrow-down">
+                    <span class="icon icon-arrow-down3"></span>
+                </div>
+                <script>
+                var useSlider = true;
+                </script>
+            </div>
+        </section>
+        <div class="content-wrapper">
+            
+        </div>
+        <footer class="page-section page-footer">
+            <div class="section-container footer-top">
+                <div class="row">
+                    <div class="column col-4 col-ph-12">
+                    </div>
+                    <div class="column col-4 col-ph-12">
+                        <div class="middle">
+                            <h3>Newsfeed - Dagens Nyheter</h3>
+                            <a class="link-icon" href="https://github.com/davidlundmark/newsfeed" target="_blank" title="Github">
+                                <span class="footer-icon">
+                    <span class="icon icon-github"></span>
+                                </span>
+                            </a>
+                            <a class="link-icon" href="https://www.linkedin.com/in/david-lundmark-94b21753/" target="_blank" title="Linkedin">
+                                <span class="footer-icon">
+                    <span class="icon icon-linkedin"></span>
+                                </span>
+                            </a>
+                            <a class="link-icon" href="mailto:davelundmark@gmail.com" target="_blank" title="Email">
+                                <span class="footer-icon">
+                    <span class="icon icon-mail2"></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column col-4 col-ph-12">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <noscript>
+        <div>
+            <h5>Javascript is not enabled. Please enable javascript in your browser settings and try again.</h5>
+        </div>
+    </noscript>
+    <script src="src/scripts.min.js"></script>
 </body>
 
 </html>
